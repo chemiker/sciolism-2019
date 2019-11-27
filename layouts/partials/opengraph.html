@@ -1,0 +1,34 @@
+{{- $openGraph := newScratch -}}
+{{- if .IsHome -}}
+	{{- $openGraph.Set "title" .Site.Title -}}
+	{{- if .Site.Params.enigma.siteDescription -}}
+		{{- $openGraph.Set "description" .Site.Params.enigma.siteDescription -}}
+	{{- end -}}
+	{{- $openGraph.Set "type" "website" -}}
+	{{- $openGraph.Set "url" .Permalink -}}
+	{{- $openGraph.Set "image" ("ogImage.png" | absURL) -}}
+{{- end -}}
+{{- if .IsPage -}}
+	{{- $openGraph.Set "title" .Title -}}
+	{{- if .Description -}}
+		{{- $openGraph.Set "description" .Description -}}
+	{{- end -}}
+	{{- $openGraph.Set "type" "article" -}}
+	{{- $openGraph.Set "url" .Permalink -}}
+	{{- if .Params.featuredImage -}}
+		{{- $openGraph.Set "image" .Permalink -}}
+		{{- $openGraph.Add "image" .Params.featuredImage -}}
+	{{- else -}}
+		{{- $openGraph.Set "image" ("ogImage.png" | absURL) -}}
+	{{- end -}}
+{{- end -}}
+
+{{ if or .IsHome .Content }}
+  <meta property="og:title" content="{{ $openGraph.Get "title" }}" />
+	{{- if $openGraph.Get "description" -}}
+		<meta property="og:description" content="{{ $openGraph.Get "description" }}" />
+	{{- end -}}
+  <meta property="og:type" content="{{ $openGraph.Get "type" }}" />
+  <meta property="og:url" content="{{ $openGraph.Get "url" }}" />
+  <meta property="og:image" content="{{ $openGraph.Get "image" }}" />
+{{ end }}

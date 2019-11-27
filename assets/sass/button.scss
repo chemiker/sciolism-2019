@@ -1,0 +1,28 @@
+span.enigmaButton {
+  display: inline-block;
+  margin: {
+    top: 15px;
+  }
+
+  $buttons: (
+		("green", $green),
+		("orange", $orange),
+		("purple", $purple),
+		("blue", $lightBlue),
+		("red", $red)
+	);
+
+	@each $name, $color in $buttons {
+		&.#{$name} {
+      a,
+      a:visited {
+			   background-color: $color;
+			   color: #FFF;
+      }
+		}
+	}
+
+  a:hover {
+        background-color: #000 !important; // Dirty but makes sure hover does work on custom button colors
+  }
+}

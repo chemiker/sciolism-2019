@@ -1,0 +1,64 @@
+/**
+ * NAVIGATION
+ */
+
+nav {
+	ul {
+		&#pages {
+			@include setMultiProperty(margin padding, 0);
+			list-style-type: none;
+			text-align: center;
+
+			li {
+				display: inline-block;
+				margin: 0 0.1rem;
+
+				&.disabled:before {
+					content: "\22EF";
+					color: $darkerGrey;
+				}
+
+				&.pageItem {
+					a, a:visited {
+						display: block;
+						@include setMultiProperty(width height line-height, 40px);
+						border-radius: 20px;
+						font-family: $heading;
+						background-color: $grey;
+						color: $textColor;
+					}
+
+					&.active {
+						a, a:visited {
+							background-color: $darkerGrey;
+							color: #FFF;
+						}
+					}
+
+					&.active a,
+					&.active a:visited,
+					a, a:visited {
+						&:hover {
+							background-color: $lightBlue;
+							color: #FFF;
+						}
+					}
+				}
+
+				&.pageNavigator {
+					a, a:visited {
+						&:hover {
+							color: $lightBlue;
+						}
+					}
+				}
+
+				&.disabled:before,
+				&.pageNavigator a, a:visited,
+				&.pageNavigator a:hover {
+				 	background: none;
+				}
+			}
+		}
+	}
+}

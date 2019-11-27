@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{- .Site.LanguageCode -}}">
+	{{- partial "head.html" . -}}
+	<body>
+		{{- partial "header.html" . -}}
+		<main>
+			{{- $themeSearch := resources.Get "js/sciolism.search.js" | resources.Minify -}}
+			<script src="/js/lunr.min.js"></script>
+			<script src="{{ $themeSearch.Permalink }}"></script>
+			<h2 id="listHeadline">Search: <em></em></h2>
+			<hr />
+		  <article>
+				<h2 class="screenReaderText">Search</h2>
+        <div id="searchResults"></div>
+      </article>
+			<hr />
+		</main>
+		{{- partial "footer.html" . -}}
+	</body>
+</html>

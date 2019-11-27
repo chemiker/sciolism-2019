@@ -1,0 +1,108 @@
+@media only screen and (max-width: 420px) {
+	html {
+		line-height: 1.7em;
+	}
+
+	header {
+		line-height: 1em;
+
+		h1 {
+			margin: $headerSpacer * 0.2 0 0;
+			font-size: 3em;
+			line-height: $headerSpacer * 1.5;
+		}
+	}
+
+	#siteDescription {
+		margin-bottom: $headerSpacer * 0.2;
+	}
+
+	footer div#copyright {
+		border-top: {
+			@include setMultiProperty(left-radius right-radius, 20px);
+		}
+	}
+
+	footer svg {
+		width: 75px;
+	}
+
+	main {
+		max-width: 90%;
+		padding: 0;
+		margin: calc(	#{$headerSpacer} * 0.2 * 2 + /* margin */
+									#{$headerSpacer} * 1.75 + /* Title */
+									#{$headerSpacer} + /* description */
+									#{$headerSpacer} * 0.5 + /* space to main */
+									#{$headerSpacer} * 0.1 ) /* border */
+						auto 0;
+
+		hr {
+			margin: {
+				@include setMultiProperty(top bottom, $headerSpacer)
+			}
+		}
+	}
+
+	article h2 {
+		& a,
+		& a:visited {
+				font-size: 2rem;
+		}
+	}
+
+	article h2:first-of-type {
+		margin-bottom: 0.83em; // Standard Browser margin-bottom for <h1>
+
+		&:after {
+			display: none;
+		}
+	}
+
+	footer {
+		width: 90%;
+
+		h2 {
+			font-size: 3rem;
+			margin-bottom: 10px;
+		}
+
+		div:first-of-type {
+			padding: 0 0 10%;
+			border-radius: 20px;
+
+			nav,
+			aside {
+				width: 90%;
+				margin: 0;
+				padding: 5% 0px;
+				border-right: none;
+			}
+		}
+
+		div#copyright,
+		footer aside {
+			margin: 0 auto 0 auto;
+		}
+
+		div#copyright {
+			padding: 0px 5% 5%;
+		}
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	body {
+		font: #{$fontSize*0.85}/#{$lineHeight} $sans;
+	}
+
+	input.searchInput {
+		font-size: 1rem;
+	}
+
+	footer {
+		h2 {
+			font-size: 2rem;
+		}
+	}
+}

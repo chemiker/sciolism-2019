@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{- .Site.LanguageCode -}}">
+	{{- partial "head.html" . -}}
+	<body>
+		{{- partial "header.html" . -}}
+		<main>
+			<article lang="{{- partial "languageCode" (dict "postLanguage" .Params.language "languageCode" .Site.LanguageCode) -}}">
+				<i class="far fa-calendar meta"></i>
+				<time class="meta" datetime="{{ .PublishDate.Format "2006-01-02" }}">
+					{{ if isset .Site.Params.enigma "dateFormat" }}
+						{{ .PublishDate.Format $.Site.Params.enigma.dateFormat }}
+					{{ else }}
+						{{ .PublishDate.Format "January 2, 2006" }}
+					{{ end }}
+				</time>
+				{{ partial "headline.html" . }}
+				{{ partial "filteredContent.html" (slice .Site .Content) }}
+			</article>
+			{{ if (or .Params.categories .Params.tags) }}
+			<div id="articleMeta">
+			<h2 class="screenReaderText">Article Info</h2>
+			{{ with .Params.categories }}
+					<h3><i class="fas fa-folder"></i> Categories</h3>
+					<ul id="articleCategories">
+			      {{ range . }}
+			        <li><a href="{{ "categories" | absURL }}/{{ . | urlize }}" rel="tag">{{ . }}</a></li>
+			      {{ end }}
+			    </ul>
+			  {{ end }}
+			{{ with .Params.tags }}
+					<h3><i class="fas fa-tags"></i> Tags</h3>
+			    <ul id="articleTags">
+			      {{ range . }}
+			        <li><a href="{{ "tags" | absURL }}/{{ . | urlize }}" rel="tag">{{ . }}</a></li>
+			      {{ end }}
+			    </ul>
+			  {{ end }}
+			</div>
+			{{ end }}
+			<hr />
+		</main>
+		{{- partial "footer.html" . -}}
+	</body>
+</html>

@@ -1,0 +1,8 @@
+{{- define "main" -}}
+<main>
+  <article lang="{{- partial "languageCode" (dict "postLanguage" .Params.language "languageCode" .Site.LanguageCode) -}}">
+    <h2>Error 404</h2>
+    <p>Something went wrong. Looking for something? Try a search.</p>
+  </article>
+</main>
+{{- end -}}

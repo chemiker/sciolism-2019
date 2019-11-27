@@ -1,0 +1,36 @@
+{{ if gt $.Paginator.TotalPages 1 }}
+<nav role="navigation">
+    <ul id="pages">
+    {{ if $.Paginator.HasPrev }}
+      <li class="pageItem pageNavigator">
+          <a href="{{ if $.Paginator.HasPrev }}{{ $.Paginator.Prev.URL }}{{ end }}" class="page-link" aria-label="Previous" title="{{ $.Site.Params.enigma.pagesPreviousString }}" rel="previous"><span class="screenReaderText">Previous page</span><i class="fas fa-arrow-left"></i></a>
+      </li>
+    {{ end }}
+	    {{ $ellipsed := false }}
+	    {{ $shouldEllipse := false }}
+	    {{ range $.Paginator.Pagers }}
+	      {{ $right := sub .TotalPages .PageNumber }}
+	      {{ $showNumber := or (le .PageNumber 1) (eq $right 0) }}
+	      {{ $showNumber := or $showNumber (and (gt .PageNumber (sub $.Paginator.PageNumber 2)) (lt .PageNumber (add $.Paginator.PageNumber 2)))  }}
+	      {{ if $showNumber }}
+	          {{ $ellipsed = false }}
+	          {{ $shouldEllipse = false }}
+	      {{ else }}
+	          {{ $shouldEllipse = not $ellipsed }}
+	          {{ $ellipsed = true }}
+	      {{ end }}
+	      {{ if $showNumber }}
+	      	<li class="pageItem{{ if eq . $.Paginator }} active{{ end }}"><a class="page-link" href="{{ .URL }}" {{- if eq .PageNumber 1 -}}rel="first"{{- else if eq .PageNumber $.Paginator.TotalPages -}}rel="last"{{- end -}}>{{ .PageNumber }}</a></li>
+	      {{ else if $shouldEllipse }}
+	      	<li class="disabled"></li>
+	      {{ end }}
+	    {{ end }}
+    {{ if $.Paginator.HasNext }}
+	    <li class="pageItem pageNavigator">
+	        <a href="{{ if $.Paginator.HasNext }}{{ $.Paginator.Next.URL }}{{ end }}" class="page-link" aria-label="Next" title="{{ $.Site.Params.enigma.pagesNextString }}" rel="next"><span class="screenReaderText">Next page</span><i class="fas fa-arrow-right"></i></a>
+	    </li>
+    {{ end }}
+    </ul>
+</nav>
+<hr />
+{{ end }}

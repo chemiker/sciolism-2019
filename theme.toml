@@ -1,0 +1,12 @@
+name = "sciolism 2019"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+description = ""
+homepage = "http://example.com/"
+tags = ["Fontawesome", "Font awesome", "Search", "Mobile", "White", "Clean", "Responsive", "Blog", "Accessibility"]
+features = ["search", "mobile", "responsive", "accessibility"]
+min_version = "0.48"
+
+[author]
+  name = "Alexander Lüken"
+  homepage = "https://sciolism.de"

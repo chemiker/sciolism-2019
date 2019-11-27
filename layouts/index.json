@@ -1,0 +1,6 @@
+{{ $hugoPages := newScratch }}
+{{- $hugoPages.Add "hugoPages" slice -}}
+	{{- range where ( where ( where .Site.Pages "Type" "in" (slice "posts" "page") ) "Title" "!=" "" ) "summary" "!=" "" -}}
+	  {{- $hugoPages.Add "hugoPages" (dict "url" .Permalink "title" .Title "tags" .Params.tags "date" .Params.date "summary" .Summary "language" .Params.language) -}}
+	{{- end -}}
+{{- $hugoPages.Get "hugoPages" | jsonify -}}
