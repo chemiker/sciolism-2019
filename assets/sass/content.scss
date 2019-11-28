@@ -68,10 +68,11 @@ blockquote cite,
 	}
 }
 
+a.footnote-ref, a.footnote-ref:visited,
 .footnote-ref a, .footnote-ref a:visited,
 span.meta a, span.meta a:visited, span.meta a:hover,
 #listHeadline,
-div.footnotes,
+.footnotes,
 figure figcaption {
 	color: $darkerGrey;
 }
@@ -465,6 +466,7 @@ table {
 }
 
 .footnote-ref {
+	&,
 	a,
 	a:visited {
 		border: none;
@@ -479,7 +481,7 @@ table {
 	}
 }
 
-div.footnotes {
+.footnotes {
 	margin-top: #{$headerSpacer * 2};
 	font-size: $smallerTextSize;
 	line-height: 1.5em;

@@ -7,7 +7,7 @@
     {{ $img1x = ($img.Resize "700x q100") }}
     {{ $img2x = ($img.Resize "1400x q100") }}
     {{ $img3x = ($img.Resize "2100x q100") }}
+    <img src="{{ $img.RelPermalink }}" srcset="{{ $img1x.RelPermalink }} 1x, {{ $img2x.RelPermalink }} 2x, {{ $img3x.RelPermalink }} 3x" alt="{{ .Get 1 }}" {{ if .Get 2 }}class="{{ .Get 2 }}"{{ end }} />
+{{ else }}
+    <img src="{{ $img.RelPermalink }}" alt="{{ .Get 1 }}" {{ if .Get 2 }}class="{{ .Get 2 }}"{{ end }} />
 {{ end }}
-
-<img src="{{ $img.RelPermalink }}" srcset="{{ $img1x.RelPermalink }} 1x, {{ $img2x.RelPermalink }} 2x, {{ $img3x.RelPermalink }} 3x" alt="{{ .Get 1 }}" {{ if .Get 2 }}class="{{ .Get 2 }}"{{ end }} />
-ss

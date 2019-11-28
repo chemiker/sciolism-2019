@@ -14,7 +14,10 @@
   {{ end }}
 
 	{{- if .Site.Params.enigma.openGraph -}}
-		{{ partial "opengraph.html" . }}
+		{{ template "_internal/opengraph.html" . }}
+	{{- end -}}
+	{{- if .Site.Params.enigma.twitterCards -}}
+		{{ template "_internal/twitter_cards.html" . }}
 	{{- end -}}
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
@@ -25,10 +28,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 	{{- if .Site.Params.enigma.favIcons -}}
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-		<link rel="icon" href="/icon-180x180.png" />
-		<link rel="apple-touch-icon" href="/icon-180x180.png" />
+		<link rel="icon" href="/favicon-180x180.png" />
+		<link rel="apple-touch-icon" href="/favicon-180x180.png" />
 		<meta name="msapplication-TileColor" content="#000000" />
-		<meta name="msapplication-TileImage" content="/icon-180x180.png" />
+		<meta name="msapplication-TileImage" content="/favicon-180x180.png" />
 	{{- end -}}
 
 	<link rel="stylesheet" href="{{ $themeCSS.RelPermalink }}" integrity="{{ $themeCSS.Data.Integrity }}" media="screen" />
