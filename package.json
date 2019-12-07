@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "*",
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-replace": "*",
+    "hack-font": "*",
+    "lunr": "*",
+    "merge-stream": "*",
+    "normalize.css": "*",
+    "npm-font-open-sans": "*"
+  }
+}

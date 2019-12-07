@@ -1,0 +1,35 @@
+sudo: false
+dist: xenial
+
+cache:
+  yarn: true
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+branches:
+  only:
+    - tests
+
+go:
+  - master
+
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.60.1/hugo_extended_0.60.1_Linux-64bit.tar.gz
+  - tar -xzvf hugo_extended_0.60.1_Linux-64bit.tar.gz
+  - chmod +x hugo
+  - export PATH=$PATH:$PWD
+  - hugo version
+  - yarn install
+  - yarn run gulp make
+  - yarn run gulp make # Run this two times to have all files build (to be checked)
+  - git clone https://github.com/gohugoio/hugoBasicExample.git
+  - cd hugoBasicExample
+  - mkdir themes
+  - mkdir themes/sciolism-2019
+  - cp -r ../dist/* themes/sciolism-2019
+
+script:
+  - hugo -t sciolism-2019

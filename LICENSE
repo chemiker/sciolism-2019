@@ -19,10 +19,13 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-This software contains software released under individual licenses:
+This software contains software and fonts released under individual licenses:
 
 lunr - Copyright (c) 2013 Oliver Nightingale
   is released under the MIT license (see file "licenses/LICENSE-LUNR")
+
+normalize.css - Copyright (c) Nicolas Gallagher and Jonathan Neal
+  is released under the MIT license (see file "licenses/LICENSE-NORMALIZE")
 
 Font Awesome - Copyright (c) Fonticons, Inc.
   components are released under
