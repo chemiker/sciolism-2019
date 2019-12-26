@@ -78,11 +78,13 @@ function renderStatics() {
         gulp.src("node_modules/hack-font/build/web/hack.css")
     ).pipe(replace("fonts/hack", "../fonts/hack/hack"))
         .pipe(replace("#{$FontPathOpenSans}", "../fonts/opensans"))
+        .pipe(replace("font-family:", "font-display: swap;\n\	font-family:"))
         .pipe(concat("fonts.scss"))
         .pipe(gulp.dest("assets/sass/"));
 
     return gulp.src("node_modules/@fortawesome/fontawesome-free/css/all.min.css")
         .pipe(replace("../webfonts/", "../fonts/fontawesome/"))
+        .pipe(replace("@font-face{font-family:", "@font-face{font-display:swap;font-family:"))
         .pipe(concat("fontawesome.min.css"))
         .pipe(gulp.dest("static/css/"));
 }

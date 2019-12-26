@@ -1,8 +1,8 @@
 {{ $paginator := "" }}
 {{ if $.Site.Params.enigma.blogPostType }}
-	{{ $paginator = .Paginate (where .Data.Pages "Type" $.Site.Params.enigma.blogPostType) }}
+	{{ $paginator = .Paginate (where .Site.RegularPages "Type" $.Site.Params.enigma.blogPostType) }}
 {{ else }}
-	{{ $paginator = .Paginate (.Data.Pages) }}
+	{{ $paginator = .Paginate (.Site.RegularPages) }}
 {{ end }}
 	{{ range $paginator.Pages }}
 		{{ partial "article.html" . }}

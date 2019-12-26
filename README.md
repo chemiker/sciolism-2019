@@ -55,7 +55,13 @@ The `quickfigure` shortcode has threi options. One for the filename, the second 
 
 Please note that the CSS class `noShadow` can be used to remove the drop shadow from the images.
 
-#### Menus
+##### Others
+
+### Abbreviations
+
+### Search
+
+### Menus
 **sciolism 2019** features two menus in the footer. The first is the `main` menu thought for the website navigation. The second, `social` can be used to link to your social media accounts. The configuration is done in your website's `config.toml` file as demonstrated below:
 
 ```

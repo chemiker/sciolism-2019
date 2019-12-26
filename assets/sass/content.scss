@@ -88,7 +88,7 @@ main {
 	padding: 0px $contentPadding;
 
 	hr {
-		margin: #{$headerSpacer * 1.5} auto;
+		margin: #{$headerSpacer * 2} auto;
 	}
 }
 
@@ -162,6 +162,8 @@ article {
 	}
 
 	h2 {
+		text-align: center;
+
 		a,
 		a:visited {
 			border: none;
@@ -200,7 +202,12 @@ article {
 			}
 
 			&:after {
-				border-bottom: #{$headerSpacer * 0.1} solid $grey;
+				margin: 0 auto;
+				border: {
+					bottom: #{$headerSpacer * 0.1} solid $grey;
+					radius: $iconSpacer;
+				}
+					
 				width: 3rem;
 				display: block;
 				position: relative;
@@ -211,20 +218,34 @@ article {
 	}
 }
 
+div.articleMiniMeta {
+	text-align: center;
+}
+
 div#articleMeta {
-	margin-top: #{$headerSpacer * 2};
+	margin: {
+		top: #{$headerSpacer * 3};
+		bottom: -1.5em;
+	}
 
 	&:before {
-		border-top: #{$headerSpacer * 0.1} solid $grey;
-		width: 50px;
+		margin: 1rem auto;
 		display: block;
 		position: relative;
 		content: "";
 		top: -#{$headerSpacer + $headerSpacer * 0.1};
 	}
 
-	h3 {
+	.articleMetaContainer {
+		vertical-align: top;
+		width: 50%;
+		display: inline-block;
+	}
+
+	h4 {
+		text-align: center;
 		margin-bottom: 0px;
+		color: $textColor;
 
 		&:first-of-type {
 			margin-top: 0;
@@ -235,6 +256,8 @@ div#articleMeta {
 			width: 1.5rem;
 			text-align: center;
 			margin-right: $iconSpacer;
+			color: $darkGrey;
+			font-size: $smallerTextSize;
 		}
 	}
 
@@ -245,6 +268,7 @@ div#articleMeta {
 			family: $code;
 		}
 		padding: 0px;
+		text-align: center;
 
 		a,
 		a:visited {
@@ -312,6 +336,19 @@ h2#listHeadline {
 			weight: normal;
 		}
 	}
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.2em;
+}
+
+h5,
+h6 {
+	font-size: 1em;
 }
 
 a,
@@ -487,12 +524,16 @@ table {
 	line-height: 1.5em;
 
 	&:before {
-		border-bottom: #{$headerSpacer * 0.1} solid $grey;
-		width: 50px;
+		width: 3rem;
+		margin: 0 auto;
 		display: block;
 		position: relative;
 		content: "";
 		top: -#{$headerSpacer - $headerSpacer * 0.1};
+		border:{
+			bottom: #{$headerSpacer * 0.1} solid $grey;
+			radius: $iconSpacer;
+		}
 	}
 
 	hr {
@@ -514,11 +555,14 @@ table {
 	}
 }
 
-hr {
-	width: 4rem;
-	height: #{$headerSpacer * 0.1};
-	background-color: $lightGrey;
-	border: none;
+hr,
+div#articleMeta:before {
+	height: 0.5rem;
+	width: 0.5rem;
+	border-radius: #{$headerSpacer * 0.1};
+	border: 0.3rem solid $lightGrey;
+	background-color: $grey;
+	transform: rotate(45deg);
 }
 
 .screenReaderText {
