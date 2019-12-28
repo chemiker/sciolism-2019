@@ -78,7 +78,7 @@ figure figcaption {
 }
 
 main {
-	max-width: $siteWidth - 2*$contentPadding;
+	max-width: $siteWidth - 2 * $contentPadding;
 	margin: calc(	#{$headerSpacer} * 0.75 * 2 + /* margin */
 								#{$headerSpacer} * 1.75 + /* Title */
 								#{$headerSpacer} + /* description */
@@ -174,16 +174,16 @@ article {
 			}
 
 			&.externalUrl {
-						i {
-							color: $darkGrey;
-							font-size: 1.4rem;
-							vertical-align: top;
-							margin-top: 0.3rem;
-						}
+				i {
+					color: $darkGrey;
+					font-size: 1.4rem;
+					vertical-align: top;
+					margin-top: 0.3rem;
+				}
 
-						&:hover i {
-							color: $red;
-						}
+				&:hover i {
+					color: $red;
+				}
 			}
 		}
 
@@ -223,27 +223,24 @@ div.articleMiniMeta {
 }
 
 div#articleMeta {
-	margin: {
-		top: #{$headerSpacer * 3};
-		bottom: -1.5em;
-	}
+	margin-bottom: #{$headerSpacer};
 
 	&:before {
-		margin: 1rem auto;
 		display: block;
 		position: relative;
+		top: 0;
 		content: "";
-		top: -#{$headerSpacer + $headerSpacer * 0.1};
+		margin: calc(#{$headerSpacer} + 0.5rem + 0.3rem) auto;
 	}
 
 	.articleMetaContainer {
 		vertical-align: top;
-		width: 50%;
+		width: calc(50% - #{$footerInnerSpacing * 2});
+		padding: $footerInnerSpacing * 0.5 $footerInnerSpacing;
 		display: inline-block;
 	}
 
 	h4 {
-		text-align: center;
 		margin-bottom: 0px;
 		color: $textColor;
 
@@ -268,7 +265,6 @@ div#articleMeta {
 			family: $code;
 		}
 		padding: 0px;
-		text-align: center;
 
 		a,
 		a:visited {
@@ -283,6 +279,10 @@ div#articleMeta {
 			}
 		}
 
+		li {
+			margin-left: 7 * $iconSpacer;
+		}
+
 		&#articleTags {
 			a,
 			a:visited {
@@ -290,10 +290,6 @@ div#articleMeta {
 					content: "#";
 				}
 			}
-		}
-
-		li {
-			display: inline-block;
 		}
 	}
 }
