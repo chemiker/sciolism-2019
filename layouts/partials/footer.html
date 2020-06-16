@@ -27,12 +27,12 @@
         {{ end }}
 		    </ul>
         </nav>
-        <aside id="socialMediaProfiles">
+        <aside id="sideNavigation">
             {{ with $.Site.Params.enigma.asideMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
             <ul>
                 {{ range .Site.Menus.aside }}
                 {{ if .HasChildren }}
-                <li class="socialMediaLink">
+                <li>
                     <a>
                         <span>{{ .Name }}</span>
                     </a>
@@ -48,7 +48,7 @@
                 </li>
                 {{ else }}
                 <li>
-                    <a href="{{ .URL }}" {{ with .Post }}{{- . -}}{{- end -}}>                  
+                    <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>
                         <span>{{ .Name }}</span>
                     </a>
                 </li>
@@ -72,3 +72,6 @@
     <p>{{ . }}</p>
     {{- end -}}
 </div>
+{{- range $template := .Site.Params.enigma.footerPartials -}}
+    {{ partial $template . }}
+{{- end -}}

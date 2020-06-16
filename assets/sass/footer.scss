@@ -2,32 +2,45 @@
  * FOOTER
  */
 
+nav#mainNavigation ul li a,
+nav#mainNavigation ul li a:visited,
+aside#sideNavigation ul li a,
+aside#sideNavigation ul li a:visited
 #copyright,
 footer {
 	color: $textColor;
+}
+
+footer h2 i,
+#copyright,
+i.searchIcon {
+	text-align: center;
+}
+
+i.searchIcon,
+footer h2 i {
+	margin-right: $iconSpacer;
+	width: $iconSpacer * 7;
+	color: $darkGrey;
 }
 
 footer {
 	font-size: 0.9em;
 	background-color: $grey;
 	border-top: #{$headerSpacer * 0.1} solid $darkGrey;
-	padding: 2rem 0;
+	padding: $footerInnerSpacing * 2 0;
+	margin-top: #{$headerSpacer};
 
 	h2 {
 		color: $darkerGrey;
-		margin-top: 0px;
+		margin: 0 0 $footerInnerSpacing * 0.5 0;
 
 		i {
-			color: $darkGrey;
-			width: $iconSpacer * 7;
-			margin-right: $iconSpacer;
-			text-align: center;
 			font-size: $smallerTextSize;
 		}
 	}
 
 	div {
-		line-height: $lineHeight;
 		width: $footerWidth;
 		margin: 0 auto;
 
@@ -36,16 +49,17 @@ footer {
 		aside {
 			display: inline-block;
 			width: calc(30% - #{$footerInnerSpacing * 2});
-			padding: 0px $footerInnerSpacing;
+			padding: 0 $footerInnerSpacing;
 		}
 	}
 
 	nav#mainNavigation,
-	aside#socialMediaProfiles {
+	aside#sideNavigation {
+		vertical-align: top;
+
 		ul {
 			list-style-type: none;
 			@include setMultiProperty(margin padding, 0);
-			line-height: 1.8rem;
 
 			li {
 				margin-left: 7 * $iconSpacer;
@@ -53,11 +67,10 @@ footer {
 				a,
 				a:visited {
 					margin: {
-						@include setMultiProperty(top bottom, 0.5em);
+						@include setMultiProperty(top bottom, $iconSpacer);
 					}
-					color: $textColor;
 					padding: $iconSpacer * 1.5;
-					border-radius: 5px;
+					border-radius: $borderRadius;
 
 					&:hover {
 						text-decoration: underline;
@@ -67,42 +80,23 @@ footer {
 			}
 		}
 	}
-
-	div {
-		z-index: 10;
-		position: relative;
-
-		> nav,
-		> aside {
-			vertical-align: top;
-		}
-	}
-}
-
-input.searchInput,
-i.searchIcon {
-	display: inline-block;
-	
-}
-
-i.searchIcon {
-	color: $darkGrey;
-	width: $iconSpacer * 7;
-	margin-right: $iconSpacer;
-	text-align: center;
 }
 
 input.searchInput {
 	width: calc(100% - #{$iconSpacer * 8});
-	padding: 0px 10px $iconSpacer 0px;
-	border: none;
+	padding-bottom: $borderRadius;
+	-webkit-appearance: none;
+	border: {
+		width: 0;
+		radius: 0;
+		bottom: #{$headerSpacer * 0.08} solid $darkGrey;
+	}
 	font: {
 		family: $heading;
 		size: 1.5em;
 		weight: bold;
 	}
 	background-color: $grey;
-	border-bottom: 3px solid $darkGrey;
 
 	&,
 	&::placeholder {
@@ -111,14 +105,15 @@ input.searchInput {
 }
 
 #copyright {
-	font-size: $smallerTextSize;
-	font-family: $code;
-	text-align: center;
+	font: {
+		size: $smallerTextSize;
+		family: $code;
+	}
 	background-color: $lightBlue;
 	color: #FFF;
 
 	p {
-		margin: 0px;
-		padding: 1rem;
+		margin: 0;
+		padding: $footerInnerSpacing;
 	}
 }

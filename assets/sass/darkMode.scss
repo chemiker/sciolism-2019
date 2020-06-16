@@ -7,6 +7,13 @@
 	header {
 		border-color: #2F2F2F;
 		background-color: $darkModeGrey;
+
+		a,
+		a:visited {
+			&:hover {
+				color: #FFF;
+			}
+		}
 	}
 
 	#siteDescription {
@@ -15,10 +22,6 @@
 
 	article {
 		h2 {
-			&:first-of-type:after {
-				border-color: $darkerGrey;
-			}
-
 			a,
 			a:visited {
 				color: #FFF;
@@ -31,7 +34,7 @@
 
 		a,
 		a:visited {
-			@include setMultiProperty(color border-color, $orange);
+			@include setMultiProperty(color border-color, $yellow);
 		}
 
 		h1,
@@ -41,24 +44,26 @@
 		h5,
 		h6 {
 			color: #FFF;
+			font-weight: bold;
 		}
 	}
 
-	.footnotes:before {
+	.footnotes:before,
+	article h2:first-of-type:after  {
 		border-color: $darkerGrey;
 	}
 
 	hr,
 	div#articleMeta:before {
 		border: none;
-		border-radius: 0px;
+		border-radius: 0;
 	}
 
 	hr,
 	main hr,
 	div#articleMeta:before {
 		background-color: $darkModeGrey;
-	}	
+	}
 
 	kbd,
 	code,
@@ -80,7 +85,7 @@
 
 	code,
 	pre {
-		border-color: $yellow;
+		border-color: $orange;
 	}
 
 	.meta,
@@ -115,7 +120,7 @@
 			color: $darkModeGrey;
 
 			&:hover {
-				background-color: $orange;
+				background-color: $red;
 				color: #FFF;
 			}
 		}
@@ -131,8 +136,8 @@
 		}
 
 		h4 {
-			color: $grey; 
-			
+			color: $grey;
+
 			i {
 				color: $darkerGrey;
 			}
@@ -186,7 +191,7 @@
 		}
 
 		nav#mainNavigation ul li,
-		aside#socialMediaProfiles ul li,
+		aside#sideNavigation ul li,
 		div#articleMeta ul {
 			a,
 			a:visited {
@@ -206,7 +211,6 @@
 		input.searchInput {
 			color: $grey;
 			background-color: $darkModeGrey;
-			border-color: $darkerGrey;
 		}
 
 		i.searchIcon {
@@ -217,6 +221,15 @@
 	#copyright {
 		background-color: $yellow;
 		color: $darkModeGrey;
+	}
+
+	.ct-grid {
+		stroke: $darkerGrey;
+		fill: $darkerGrey;
+	}
+
+	.ct-axis-title {
+		fill: $darkGrey;
 	}
 
 	/* STYLES FOR SYNTAX HIGHLIGHT (OVERWRITE WITH COLORS MONOKAI) */

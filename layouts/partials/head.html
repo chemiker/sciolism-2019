@@ -1,6 +1,7 @@
-{{- $themeCSS := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | toCSS (dict "targetPath" "css/screen.css" "outputStyle" "compressed") | minify | fingerprint -}}
+{{- $themeCSS := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | toCSS (dict "targetPath" "css/screen.css" "outputStyle" "compressed") -}}
 {{- $theme := resources.Get "js/sciolism.theme.js" | resources.Minify -}}
 <head>
+
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="canonical" href="{{ .Permalink }}" />
@@ -9,15 +10,19 @@
 	{{ if .Description }}
 		<meta name="description" content="{{ .Description | plainify }}" />
 	{{ end }}
-  {{ if and (.Site.Params.enigma.siteDescription) (.IsHome) }}
-    <meta name="description" content="{{ .Site.Params.enigma.siteDescription | plainify }}" />
-  {{ end }}
+	{{ if and (.Site.Params.enigma.siteDescription) (.IsHome) }}
+		<meta name="description" content="{{ .Site.Params.enigma.siteDescription | plainify }}" />
+	{{ end }}
 
 	{{- if .Site.Params.enigma.openGraph -}}
 		{{ template "_internal/opengraph.html" . }}
 	{{- end -}}
 	{{- if .Site.Params.enigma.twitterCards -}}
 		{{ template "_internal/twitter_cards.html" . }}
+	{{- end -}}
+
+	{{- range $template := .Site.Params.enigma.headerPartials -}}
+		{{ partial $template . }}
 	{{- end -}}
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
@@ -44,5 +49,5 @@
 		</style>
 	{{ end }}
 
-	<script src="{{ $theme.Permalink }}"></script>
+	<script src="{{ $theme.Permalink }}" async></script>
 </head>

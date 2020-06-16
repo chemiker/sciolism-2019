@@ -68,6 +68,18 @@ blockquote cite,
 	}
 }
 
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
 a.footnote-ref, a.footnote-ref:visited,
 .footnote-ref a, .footnote-ref a:visited,
 span.meta a, span.meta a:visited, span.meta a:hover,
@@ -158,11 +170,13 @@ article {
 	h6
 	 {
 		color: #000;
-		margin: 1.6em 0 0.8em
+		margin: 1.6em 0 0.8em;
 	}
 
 	h2 {
 		text-align: center;
+		letter-spacing: -1px;
+		font-weight: normal;
 
 		a,
 		a:visited {
@@ -207,7 +221,7 @@ article {
 					bottom: #{$headerSpacer * 0.1} solid $grey;
 					radius: $iconSpacer;
 				}
-					
+
 				width: 3rem;
 				display: block;
 				position: relative;
@@ -223,8 +237,6 @@ div.articleMiniMeta {
 }
 
 div#articleMeta {
-	margin-bottom: #{$headerSpacer};
-
 	&:before {
 		display: block;
 		position: relative;
@@ -363,7 +375,7 @@ span.enigmaButton,
 div#articleMeta {
 	a,
 	a:visited {
-		border-radius: 3px;
+		border-radius: $smallBorderRadius;
 	}
 }
 
@@ -437,7 +449,7 @@ pre,
 img,
 div.chroma,
 .highlightText {
-	border-radius: 5px;
+	border-radius: $borderRadius;
 }
 
 mark,

@@ -19,15 +19,11 @@
 
 	main {
 		padding: 0;
-		margin-top: calc(	#{$headerSpacer} * 0.2 * 2 + /* margin */
-									#{$headerSpacer} * 1.75 + /* Title */
-									#{$headerSpacer} + /* description */
-									#{$headerSpacer} * 0.5 + /* space to main */
-									#{$headerSpacer} * 0.1 ) /* border */;
-
-		hr {
-			margin: calc(1rem + 0.5rem + 0.3rem) auto;
-		}
+		margin-top: calc( #{$headerSpacer} * 0.2 * 2 + /* margin */
+			#{$headerSpacer} * 1.75 + /* Title */
+			#{$headerSpacer} + /* description */
+			#{$headerSpacer} * 0.5 + /* space to main */
+			#{$headerSpacer} * 0.1 ) /* border */;
 	}
 
 	article {
@@ -35,7 +31,9 @@
 		margin: 0 auto;
 	}
 
-	div#articleMeta:before {
+	div#articleMeta:before,
+	nav ul#pages,
+	main hr {
 		margin: calc(1rem + 0.5rem + 0.3rem) auto;
 	}
 
@@ -84,12 +82,12 @@
 
 			form,
 			nav#mainNavigation,
-			aside#socialMediaProfiles {
+			aside#sideNavigation {
 				padding: $footerInnerSpacing * 0.5 $footerInnerSpacing;
 			}
 
 			nav#mainNavigation,
-			aside#socialMediaProfiles {
+			aside#sideNavigation {
 				width: calc(50% - #{$footerInnerSpacing * 2});
 				
 				ul {
@@ -109,14 +107,6 @@
 		width: calc(100% - #{$iconSpacer * 8});
 		font-size: 1.1rem;
 	}
-
-	nav {
-		ul {
-			&#pages {
-				margin: calc(1rem + 0.5rem + 0.3rem) auto;
-			}
-		}
-	}
 }
 
 @media only screen and (max-width: 350px) {
@@ -134,7 +124,7 @@
 
 		div {
 			nav#mainNavigation,
-			aside#socialMediaProfiles {
+			aside#sideNavigation {
 				width: calc(100% - #{$footerInnerSpacing * 2});
 			}
 		}

@@ -16,12 +16,14 @@
 $siteWidth: 700px;
 $headerAnimationSpeed: 0.3s;
 $footerWidth: $siteWidth + 50;
-$footerBorderRadius: 68px;
+$smallBorderRadius: 3px;
+$borderRadius: 5px;
 
 // Spacer
 $contentPadding: 20px;
 $headerSpacer: 2rem;
 $footerInnerSpacing: $headerSpacer * 0.5;
+$iconSpacer: 0.3rem;
 
 // Fonts & Icons
 @import "fonts";
@@ -32,7 +34,6 @@ $icon: "Font Awesome 5 Free";
 $fontSize: 18px;
 $smallerTextSize: 0.8em;
 $lineHeight: 1.8em;
-$iconSpacer: 0.3rem;
 
 // Primary
 $lightBlue: #006EDA;
@@ -86,6 +87,11 @@ $darkModeAlternativeTextColor: #444;
 @import "mobile";
 
 /*
+ * CHARTIST 📊
+ */
+@import "chartistTheme";
+
+/*
  * DARK MODE 🦇
  */
-@import "darkMode"
+@import "darkMode";
