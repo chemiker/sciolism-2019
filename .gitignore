@@ -1,1 +1,16 @@
 .DS_Store
+node_modules
+assets/sass/normalize.css
+assets/sass/fonts.scss
+dist/
+static/js
+static/css
+static/fonts/fontawesome
+static/fonts/hack
+static/fonts/opensans
+licenses/LICENSE-FONTAWESOME
+licenses/LICENSE-HACK
+licenses/LICENSE-LUNR
+licenses/LICENSE-OPENSANS
+licenses/LICENSE-NORMALIZE
+yarn-error.log

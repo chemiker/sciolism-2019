@@ -3,7 +3,7 @@
 {{ $img2x := $img }}
 {{ $img3x := $img }}
 
-{{ if gt $img.Width "700" }}
+{{ if gt $img.Width "1400" }}
     {{ $img1x = ($img.Resize "700x q100") }}
     {{ $img2x = ($img.Resize "1400x q100") }}
     {{ $img3x = ($img.Resize "2100x q100") }}

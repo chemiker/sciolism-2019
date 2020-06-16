@@ -1,3 +1,8 @@
+/**
+ * [Event listeners to handle resizing of header during scrolling]
+ */
+
+
 document.addEventListener("scroll", function() {
 	header = document.querySelector("header");
 

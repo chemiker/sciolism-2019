@@ -7,6 +7,13 @@
 	header {
 		border-color: #2F2F2F;
 		background-color: $darkModeGrey;
+
+		a,
+		a:visited {
+			&:hover {
+				color: #FFF;
+			}
+		}
 	}
 
 	#siteDescription {
@@ -15,10 +22,6 @@
 
 	article {
 		h2 {
-			&:first-of-type:after {
-				border-color: $darkerGrey;
-			}
-
 			a,
 			a:visited {
 				color: #FFF;
@@ -31,7 +34,7 @@
 
 		a,
 		a:visited {
-			@include setMultiProperty(color border-color, $orange);
+			@include setMultiProperty(color border-color, $yellow);
 		}
 
 		h1,
@@ -41,16 +44,25 @@
 		h5,
 		h6 {
 			color: #FFF;
+			font-weight: bold;
 		}
 	}
 
-	main hr {
-		background-color: $darkerGrey;
+	.footnotes:before,
+	article h2:first-of-type:after  {
+		border-color: $darkerGrey;
 	}
 
-	.footnotes:before,
+	hr,
 	div#articleMeta:before {
-		border-color: $darkerGrey;
+		border: none;
+		border-radius: 0;
+	}
+
+	hr,
+	main hr,
+	div#articleMeta:before {
+		background-color: $darkModeGrey;
 	}
 
 	kbd,
@@ -73,7 +85,7 @@
 
 	code,
 	pre {
-		border-color: $yellow;
+		border-color: $orange;
 	}
 
 	.meta,
@@ -88,6 +100,17 @@
 		box-shadow: 2px 2px 0px #222;
 	}
 
+	time.meta,
+	span.meta,
+	i.meta {
+		a,
+		a:visited {
+			&:hover {
+				color: #FFF;
+			}
+		}
+	}
+
 	.readMore,
 	span.enigmaButton {
 		a,
@@ -97,7 +120,7 @@
 			color: $darkModeGrey;
 
 			&:hover {
-				background-color: $orange;
+				background-color: $red;
 				color: #FFF;
 			}
 		}
@@ -111,11 +134,54 @@
 				color: $darkerGrey;
 			}
 		}
+
+		h4 {
+			color: $grey;
+
+			i {
+				color: $darkerGrey;
+			}
+		}
+	}
+
+	nav {
+		ul {
+			&#pages {
+				li {
+					&.pageItem {
+						&.active a,
+						&.active a:visited,
+						a, a:visited {
+							&:hover {
+								background-color: $yellow;
+								color:#000;
+							}
+						}
+					}
+
+					&.pageNavigator {
+						a, a:visited {
+							&:hover {
+								color: $yellow;
+								background: none;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	footer {
+		background-color: $darkModeGrey;
+		border: none;
+
 		h2 {
-			color: $darkModeAlternativeTextColor;
+			color: $darkerGrey;
+
+			i {
+				color: $darkerGrey;
+			}
 		}
 
 		div {
@@ -125,35 +191,45 @@
 		}
 
 		nav#mainNavigation ul li,
-		aside#socialMediaProfiles ul li,
+		aside#sideNavigation ul li,
 		div#articleMeta ul {
 			a,
 			a:visited {
-				background-color: $darkModeAlternativeTextColor;
 				color: $grey;
+
+				&:hover {
+					color: $yellow;
+				}
 			}
 		}
 
+		input.searchInput,
+		i.searchIcon {
+			border-color: $darkerGrey;
+		}
+
 		input.searchInput {
-			background-color: $darkModeAlternativeTextColor;
 			color: $grey;
+			background-color: $darkModeGrey;
 		}
 
 		i.searchIcon {
 			color: $darkerGrey;
 		}
+	}
 
-		div,
-		#copyright {
-			background-color: $darkModeGrey;
-			color: $darkGrey;
-		}
+	#copyright {
+		background-color: $yellow;
+		color: $darkModeGrey;
+	}
 
-		svg {
-			g {
-				fill: $darkModeGrey;
-			}
-		}
+	.ct-grid {
+		stroke: $darkerGrey;
+		fill: $darkerGrey;
+	}
+
+	.ct-axis-title {
+		fill: $darkGrey;
 	}
 
 	/* STYLES FOR SYNTAX HIGHLIGHT (OVERWRITE WITH COLORS MONOKAI) */

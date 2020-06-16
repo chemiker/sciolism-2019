@@ -5,7 +5,7 @@
 nav {
 	ul {
 		&#pages {
-			@include setMultiProperty(margin padding, 0);
+			margin: 0px auto 2rem auto;
 			list-style-type: none;
 			text-align: center;
 
@@ -21,8 +21,8 @@ nav {
 				&.pageItem {
 					a, a:visited {
 						display: block;
-						@include setMultiProperty(width height line-height, 40px);
-						border-radius: 20px;
+						@include setMultiProperty(width height line-height, 35px);
+						border-radius: 5px;
 						font-family: $heading;
 						background-color: $grey;
 						color: $textColor;

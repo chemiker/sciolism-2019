@@ -1,13 +1,12 @@
 <footer>
-	<h2>Navigation</h2>
 	<div>
 		<nav id="mainNavigation">
+			{{ with $.Site.Params.enigma.mainMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
 		    <ul>
         {{ range .Site.Menus.main }}
             {{ if .HasChildren }}
                 <li class="menu">
                     <a>
-                        {{ .Pre }}
                         <span>{{ .Name }}</span>
                     </a>
                 </li>
@@ -21,69 +20,58 @@
             {{ else }}
                 <li class="menu">
                     <a href="{{ .URL }}">
-                        {{ .Pre }}
                         <span>{{ .Name }}</span>
                     </a>
                 </li>
             {{ end }}
         {{ end }}
 		    </ul>
-		</nav><aside id="socialMediaProfiles">
-		    <ul>
-        {{ range .Site.Menus.social }}
-            {{ if .HasChildren }}
-                <li class="socialMediaLink">
-                    <a>
-                        {{ .Pre }}
-                        <span>{{ .Name }}</span>
-                    </a>
-                </li>
-								<li>
-									<ul class="subMenu">
-	                    {{ range .Children }}
-	                        <li>
-	                            <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>{{ .Pre }} {{ .Name }}</a>
-	                        </li>
-	                    {{ end }}
-	                </ul>
-								</li>
-            {{ else }}
+        </nav>
+        <aside id="sideNavigation">
+            {{ with $.Site.Params.enigma.asideMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
+            <ul>
+                {{ range .Site.Menus.aside }}
+                {{ if .HasChildren }}
                 <li>
-                    <a href="{{ .URL }}" {{ with .Post }}{{- . -}}{{- end -}}>
-                        {{ .Pre }}
+                    <a>
                         <span>{{ .Name }}</span>
                     </a>
                 </li>
-            {{ end }}
-        {{ end }}
-		    </ul>
-		</aside>
-	</div>
-	<svg aria-hidden="true" width="100%" height="100%" viewBox="0 0 1182 423" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-	    <g transform="matrix(1,0,0,1,-590.551,-2073.43)">
-	        <g transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,2253.2,3402.54)">
-	            <path d="M481.551,1329.1L1662.65,1329.1L1553.83,1329.1C1441.73,1329.1 1334.22,1284.57 1254.95,1205.31C1175.69,1126.04 1131.16,1018.53 1131.16,906.433L1131.16,906.433L1013.05,906.433L1013.05,906.434C1013.05,1139.75 823.971,1328.92 590.654,1329.05C526.688,1329.08 481.551,1329.1 481.551,1329.1Z" />
-	        </g>
-	    </g>
-	</svg><br />
-	<svg aria-hidden="true" width="100%" height="100%" viewBox="0 0 1182 423" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-	    <g transform="matrix(1,0,0,1,-590.551,-1535.43)">
-	        <g transform="matrix(1,0,0,1,109,629)">
-	            <path d="M481.551,1329.1L1662.65,1329.1L1553.83,1329.1C1441.73,1329.1 1334.22,1284.57 1254.95,1205.31C1175.69,1126.04 1131.16,1018.53 1131.16,906.433L1131.16,906.433L1013.05,906.433L1013.05,906.434C1013.05,1139.75 823.971,1328.92 590.654,1329.05C526.688,1329.08 481.551,1329.1 481.551,1329.1Z" />
-	        </g>
-	    </g>
-	</svg>
-	<div id="copyright">
-		{{- if $.Site.Params.enigma.search -}}
-		<form method="get" action="/search/" role="search">
-			<i class="fas fa-search searchIcon"></i>
-			<label for="bottomSearchBox" class="screenReaderText" aria-label="Search">Search</label>
-			<input type="search" name="q" id="bottomSearchBox" placeholder="Search" class="searchInput" />
-		</form>
-		{{- end -}}
-		<p>Made with <i class="fas fa-heart"></i>&nbsp;using Hugo and the sciolism 2019 theme.</p>
-		{{- with .Site.Copyright -}}
-		<p>{{ . }}</p>
-		{{- end -}}
+                <li>
+                    <ul class="subMenu">
+                        {{ range .Children }}
+                        <li>
+                            <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>{{ .Pre }} {{ .Name }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </li>
+                {{ else }}
+                <li>
+                    <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+                {{ end }}
+                {{ end }}
+            </ul>
+        </aside>
+        {{- if $.Site.Params.enigma.search -}}
+        <form method="get" action="/search/" role="search">
+            <h2 class="screenReaderText">Search</h2>
+            <label for="bottomSearchBox" class="screenReaderText" aria-label="Search">Search</label>
+            <i class="fas fa-search searchIcon"></i><input type="search" name="q" id="bottomSearchBox" placeholder="Search"
+                class="searchInput" />
+        </form>
+        {{- end -}}
 	</div>
 </footer>
+<div id="copyright">
+    <p>Made with <i class="fas fa-heart"></i>&nbsp;using Hugo and the sciolism 2019 theme.</p>
+    {{- with .Site.Copyright -}}
+    <p>{{ . }}</p>
+    {{- end -}}
+</div>
+{{- range $template := .Site.Params.enigma.footerPartials -}}
+    {{ partial $template . }}
+{{- end -}}

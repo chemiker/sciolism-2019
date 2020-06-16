@@ -2,8 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-#categories: [""]
-#tags: [""]
+#categories: -
+#tags: -
+#description: 
 #language: ""
 #externalURL: ""
 #image: [""]

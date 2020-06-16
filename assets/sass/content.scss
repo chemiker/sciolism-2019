@@ -68,6 +68,18 @@ blockquote cite,
 	}
 }
 
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
 a.footnote-ref, a.footnote-ref:visited,
 .footnote-ref a, .footnote-ref a:visited,
 span.meta a, span.meta a:visited, span.meta a:hover,
@@ -78,7 +90,7 @@ figure figcaption {
 }
 
 main {
-	max-width: $siteWidth - 2*$contentPadding;
+	max-width: $siteWidth - 2 * $contentPadding;
 	margin: calc(	#{$headerSpacer} * 0.75 * 2 + /* margin */
 								#{$headerSpacer} * 1.75 + /* Title */
 								#{$headerSpacer} + /* description */
@@ -88,7 +100,7 @@ main {
 	padding: 0px $contentPadding;
 
 	hr {
-		margin: #{$headerSpacer * 1.5} auto;
+		margin: #{$headerSpacer * 2} auto;
 	}
 }
 
@@ -158,10 +170,14 @@ article {
 	h6
 	 {
 		color: #000;
-		margin: 1.6em 0 0.8em
+		margin: 1.6em 0 0.8em;
 	}
 
 	h2 {
+		text-align: center;
+		letter-spacing: -1px;
+		font-weight: normal;
+
 		a,
 		a:visited {
 			border: none;
@@ -172,16 +188,16 @@ article {
 			}
 
 			&.externalUrl {
-						i {
-							color: $darkGrey;
-							font-size: 1.4rem;
-							vertical-align: top;
-							margin-top: 0.3rem;
-						}
+				i {
+					color: $darkGrey;
+					font-size: 1.4rem;
+					vertical-align: top;
+					margin-top: 0.3rem;
+				}
 
-						&:hover i {
-							color: $red;
-						}
+				&:hover i {
+					color: $red;
+				}
 			}
 		}
 
@@ -200,7 +216,12 @@ article {
 			}
 
 			&:after {
-				border-bottom: #{$headerSpacer * 0.1} solid $grey;
+				margin: 0 auto;
+				border: {
+					bottom: #{$headerSpacer * 0.1} solid $grey;
+					radius: $iconSpacer;
+				}
+
 				width: 3rem;
 				display: block;
 				position: relative;
@@ -211,20 +232,29 @@ article {
 	}
 }
 
-div#articleMeta {
-	margin-top: #{$headerSpacer * 2};
+div.articleMiniMeta {
+	text-align: center;
+}
 
+div#articleMeta {
 	&:before {
-		border-top: #{$headerSpacer * 0.1} solid $grey;
-		width: 50px;
 		display: block;
 		position: relative;
+		top: 0;
 		content: "";
-		top: -#{$headerSpacer + $headerSpacer * 0.1};
+		margin: calc(#{$headerSpacer} + 0.5rem + 0.3rem) auto;
 	}
 
-	h3 {
+	.articleMetaContainer {
+		vertical-align: top;
+		width: calc(50% - #{$footerInnerSpacing * 2});
+		padding: $footerInnerSpacing * 0.5 $footerInnerSpacing;
+		display: inline-block;
+	}
+
+	h4 {
 		margin-bottom: 0px;
+		color: $textColor;
 
 		&:first-of-type {
 			margin-top: 0;
@@ -235,6 +265,8 @@ div#articleMeta {
 			width: 1.5rem;
 			text-align: center;
 			margin-right: $iconSpacer;
+			color: $darkGrey;
+			font-size: $smallerTextSize;
 		}
 	}
 
@@ -259,6 +291,10 @@ div#articleMeta {
 			}
 		}
 
+		li {
+			margin-left: 7 * $iconSpacer;
+		}
+
 		&#articleTags {
 			a,
 			a:visited {
@@ -266,10 +302,6 @@ div#articleMeta {
 					content: "#";
 				}
 			}
-		}
-
-		li {
-			display: inline-block;
 		}
 	}
 }
@@ -314,6 +346,19 @@ h2#listHeadline {
 	}
 }
 
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.2em;
+}
+
+h5,
+h6 {
+	font-size: 1em;
+}
+
 a,
 a:visited {
 	text-decoration: none;
@@ -330,7 +375,7 @@ span.enigmaButton,
 div#articleMeta {
 	a,
 	a:visited {
-		border-radius: 3px;
+		border-radius: $smallBorderRadius;
 	}
 }
 
@@ -404,7 +449,7 @@ pre,
 img,
 div.chroma,
 .highlightText {
-	border-radius: 5px;
+	border-radius: $borderRadius;
 }
 
 mark,
@@ -487,12 +532,16 @@ table {
 	line-height: 1.5em;
 
 	&:before {
-		border-bottom: #{$headerSpacer * 0.1} solid $grey;
-		width: 50px;
+		width: 3rem;
+		margin: 0 auto;
 		display: block;
 		position: relative;
 		content: "";
 		top: -#{$headerSpacer - $headerSpacer * 0.1};
+		border:{
+			bottom: #{$headerSpacer * 0.1} solid $grey;
+			radius: $iconSpacer;
+		}
 	}
 
 	hr {
@@ -514,11 +563,14 @@ table {
 	}
 }
 
-hr {
-	width: 4rem;
-	height: #{$headerSpacer * 0.1};
-	background-color: $lightGrey;
-	border: none;
+hr,
+div#articleMeta:before {
+	height: 0.5rem;
+	width: 0.5rem;
+	border-radius: #{$headerSpacer * 0.1};
+	border: 0.3rem solid $lightGrey;
+	background-color: $grey;
+	transform: rotate(45deg);
 }
 
 .screenReaderText {

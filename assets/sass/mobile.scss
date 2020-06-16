@@ -17,30 +17,31 @@
 		margin-bottom: $headerSpacer * 0.2;
 	}
 
-	footer div#copyright {
-		border-top: {
-			@include setMultiProperty(left-radius right-radius, 20px);
-		}
-	}
-
-	footer svg {
-		width: 75px;
-	}
-
 	main {
-		max-width: 90%;
 		padding: 0;
-		margin: calc(	#{$headerSpacer} * 0.2 * 2 + /* margin */
-									#{$headerSpacer} * 1.75 + /* Title */
-									#{$headerSpacer} + /* description */
-									#{$headerSpacer} * 0.5 + /* space to main */
-									#{$headerSpacer} * 0.1 ) /* border */
-						auto 0;
+		margin-top: calc( #{$headerSpacer} * 0.2 * 2 + /* margin */
+			#{$headerSpacer} * 1.75 + /* Title */
+			#{$headerSpacer} + /* description */
+			#{$headerSpacer} * 0.5 + /* space to main */
+			#{$headerSpacer} * 0.1 ) /* border */;
+	}
 
-		hr {
-			margin: {
-				@include setMultiProperty(top bottom, $headerSpacer)
-			}
+	article {
+		max-width: 90%;
+		margin: 0 auto;
+	}
+
+	div#articleMeta:before,
+	nav ul#pages,
+	main hr {
+		margin: calc(1rem + 0.5rem + 0.3rem) auto;
+	}
+
+	div#articleMeta {
+		margin: 0;
+
+		h4 {
+			font-size: 1.1rem;
 		}
 	}
 
@@ -59,35 +60,52 @@
 		}
 	}
 
+	span {
+		&.metaSeparator {
+			display: none;
+		}
+
+		&.meta {
+			display: block;
+		}
+	}
+
 	footer {
-		width: 90%;
+		padding: $footerInnerSpacing * 0.5 0;
 
 		h2 {
-			font-size: 3rem;
-			margin-bottom: 10px;
+			font-size: 1.1rem;
 		}
 
-		div:first-of-type {
-			padding: 0 0 10%;
-			border-radius: 20px;
+		div {
+			width: 100%;
 
-			nav,
-			aside {
-				width: 90%;
-				margin: 0;
-				padding: 5% 0px;
-				border-right: none;
+			form,
+			nav#mainNavigation,
+			aside#sideNavigation {
+				padding: $footerInnerSpacing * 0.5 $footerInnerSpacing;
+			}
+
+			nav#mainNavigation,
+			aside#sideNavigation {
+				width: calc(50% - #{$footerInnerSpacing * 2});
+				
+				ul {
+					font-size: 0.9em;
+					white-space: nowrap;
+				}
+			}
+
+			form {
+				display: block;
+				width: calc(100% - #{$footerInnerSpacing * 2});
 			}
 		}
+	}
 
-		div#copyright,
-		footer aside {
-			margin: 0 auto 0 auto;
-		}
-
-		div#copyright {
-			padding: 0px 5% 5%;
-		}
+	input.searchInput {
+		width: calc(100% - #{$iconSpacer * 8});
+		font-size: 1.1rem;
 	}
 }
 
@@ -98,11 +116,17 @@
 
 	input.searchInput {
 		font-size: 1rem;
+		text-align: center;
 	}
 
 	footer {
-		h2 {
-			font-size: 2rem;
+		text-align: center;
+
+		div {
+			nav#mainNavigation,
+			aside#sideNavigation {
+				width: calc(100% - #{$footerInnerSpacing * 2});
+			}
 		}
 	}
 }
