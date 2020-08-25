@@ -30,6 +30,10 @@ footer {
 	border-top: #{$headerSpacer * 0.1} solid $darkGrey;
 	padding: $footerInnerSpacing * 2 0;
 	margin-top: #{$headerSpacer};
+	display: grid;
+	grid-template-columns: repeat( 3, calc(#{$siteWidth * 0.3} - #{$footerInnerSpacing * 2 / 3}) );
+	gap: $footerInnerSpacing * 2;
+	justify-content: center;
 
 	h2 {
 		color: $darkerGrey;
@@ -37,19 +41,6 @@ footer {
 
 		i {
 			font-size: $smallerTextSize;
-		}
-	}
-
-	div {
-		width: $footerWidth;
-		margin: 0 auto;
-
-		form,
-		nav,
-		aside {
-			display: inline-block;
-			width: calc(30% - #{$footerInnerSpacing * 2});
-			padding: 0 $footerInnerSpacing;
 		}
 	}
 

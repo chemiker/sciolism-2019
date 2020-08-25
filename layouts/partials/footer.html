@@ -1,70 +1,68 @@
 <footer>
-	<div>
-		<nav id="mainNavigation">
-			{{ with $.Site.Params.enigma.mainMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
-		    <ul>
-        {{ range .Site.Menus.main }}
-            {{ if .HasChildren }}
-                <li class="menu">
-                    <a>
-                        <span>{{ .Name }}</span>
-                    </a>
-                </li>
-                <ul class="subMenu">
-                    {{ range .Children }}
-                        <li class="">
-                            <a href="{{ .URL }}">{{ .Name }}</a>
-                        </li>
-                    {{ end }}
-                </ul>
-            {{ else }}
-                <li class="menu">
-                    <a href="{{ .URL }}">
-                        <span>{{ .Name }}</span>
-                    </a>
-                </li>
-            {{ end }}
-        {{ end }}
-		    </ul>
-        </nav>
-        <aside id="sideNavigation">
-            {{ with $.Site.Params.enigma.asideMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
-            <ul>
-                {{ range .Site.Menus.aside }}
-                {{ if .HasChildren }}
-                <li>
-                    <a>
-                        <span>{{ .Name }}</span>
-                    </a>
-                </li>
-                <li>
-                    <ul class="subMenu">
-                        {{ range .Children }}
-                        <li>
-                            <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>{{ .Pre }} {{ .Name }}</a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                </li>
-                {{ else }}
-                <li>
-                    <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>
-                        <span>{{ .Name }}</span>
-                    </a>
-                </li>
-                {{ end }}
+    <nav id="mainNavigation">
+        {{ with $.Site.Params.enigma.mainMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
+        <ul>
+    {{ range .Site.Menus.main }}
+        {{ if .HasChildren }}
+            <li class="menu">
+                <a>
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            <ul class="subMenu">
+                {{ range .Children }}
+                    <li class="">
+                        <a href="{{ .URL }}">{{ .Name }}</a>
+                    </li>
                 {{ end }}
             </ul>
-        </aside>
-        {{- if $.Site.Params.enigma.search -}}
-        <form method="get" action="/search/" role="search">
-            <h2 class="screenReaderText">Search</h2>
-            <label for="bottomSearchBox" class="screenReaderText" aria-label="Search">Search</label>
-            <i class="fas fa-search searchIcon"></i><input type="search" name="q" id="bottomSearchBox" placeholder="Search"
-                class="searchInput" />
-        </form>
-        {{- end -}}
-	</div>
+        {{ else }}
+            <li class="menu">
+                <a href="{{ .URL }}">
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+        {{ end }}
+    {{ end }}
+        </ul>
+    </nav>
+    <aside id="sideNavigation">
+        {{ with $.Site.Params.enigma.asideMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
+        <ul>
+            {{ range .Site.Menus.aside }}
+            {{ if .HasChildren }}
+            <li>
+                <a>
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            <li>
+                <ul class="subMenu">
+                    {{ range .Children }}
+                    <li>
+                        <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>{{ .Pre }} {{ .Name }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </li>
+            {{ else }}
+            <li>
+                <a href="{{ .URL }}" {{ with .Post }}{{- . | safeHTMLAttr -}}{{- end -}}>
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            {{ end }}
+            {{ end }}
+        </ul>
+    </aside>
+    {{- if $.Site.Params.enigma.search -}}
+    <form method="get" action="/search/" role="search">
+        <h2 class="screenReaderText">Search</h2>
+        <label for="bottomSearchBox" class="screenReaderText" aria-label="Search">Search</label>
+        <i class="fas fa-search searchIcon"></i><input type="search" name="q" id="bottomSearchBox" placeholder="Search"
+            class="searchInput" />
+    </form>
+    {{- end -}}
 </footer>
 <div id="copyright">
     <p>Made with <i class="fas fa-heart"></i>&nbsp;using Hugo and the sciolism 2019 theme.</p>

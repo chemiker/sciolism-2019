@@ -1,6 +1,6 @@
 <article lang="{{- partial "languageCode" (dict "postLanguage" .Params.language "languageCode" .Site.LanguageCode) -}}">
 	<div class="articleMiniMeta">
-		<i class="far fa-calendar meta"></i>
+		<i class="far fa-calendar-alt meta"></i>
 		<time class="meta" datetime="{{ .PublishDate.Format "2006-01-02" }}">
 			{{ if isset .Site.Params.enigma "dateFormat" }}
 				{{ .PublishDate.Format $.Site.Params.enigma.dateFormat }}
