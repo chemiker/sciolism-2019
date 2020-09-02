@@ -62,21 +62,39 @@ function renderStatics() {
     );
 
     moveFiles(
+        "node_modules/@openfonts/roboto-slab_all/files/*",
+        "static/fonts/roboto-slab/"
+    );
+
+    moveAndRenameFile(
+        "node_modules/@openfonts/roboto-slab_all/LICENSE.md",
+        "LICENSE-ROBOTO-SLAB-ALL",
+        "licenses/"
+    );
+
+    moveFiles(
         "node_modules/npm-font-open-sans/fonts/**/*",
         "static/fonts/opensans/"
     );
 
     moveAndRenameFile(
         "node_modules/npm-font-open-sans/LICENSE",
-        "LICENSE-OPENSANS",
+        "LICENSE-OPENSANS-AND-ROBOTO-SLAB",
         "licenses/"
     );
 
     merge(
-        gulp.src("assets/sass/fontArvo.scss"),
-        gulp.src("node_modules/npm-font-open-sans/open-sans.scss"),
+        merge(
+            gulp.src("assets/sass/open-sans-copyright.scss"),
+            gulp.src("node_modules/npm-font-open-sans/open-sans.scss")
+        ),
+        merge(
+            gulp.src("assets/sass/roboto-slab-all-copyright.scss"),
+            gulp.src("node_modules/@openfonts/roboto-slab_all/index.css")
+        ),
         gulp.src("node_modules/hack-font/build/web/hack.css")
     ).pipe(replace("fonts/hack", "../fonts/hack/hack"))
+        .pipe(replace("./files/roboto", "../fonts/roboto-slab/roboto"))
         .pipe(replace("#{$FontPathOpenSans}", "../fonts/opensans"))
         .pipe(replace("font-family:", "font-display: swap;\n\	font-family:"))
         .pipe(concat("fonts.scss"))

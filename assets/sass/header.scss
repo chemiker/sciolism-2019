@@ -18,7 +18,7 @@ header {
 	background-color: $grey;
 	opacity: 0.98;
 	text-align: center;
-	border-bottom: #{$headerSpacer * 0.1} solid $darkGrey;
+	border-bottom: #{$headerSpacer * 0.2} solid $darkGrey;
 
 	a,
 	a:visited {
@@ -35,6 +35,7 @@ header {
 		margin: $headerSpacer * 0.75 0 0;
 		font-size: $headerSpacer * 1.6;
 		line-height: $headerSpacer * 1.75;
+		font-weight: 500;
 
 		&.withLogo {
 			height: $headerSpacer; // Custom logo height?

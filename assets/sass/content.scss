@@ -102,7 +102,7 @@ main {
 	display: grid;
 	grid-template-columns: 100%;
 	justify-content: center;
-	gap: 3rem;
+	gap: $headerSpacer;
 }
 
 iframe {
@@ -125,7 +125,7 @@ img {
 figure {
 	margin: {
 		@include setMultiProperty(left right, 0);
-		bottom: 1.6em;
+		bottom: $lineHeight;
 	}
 
 	figcaption {
@@ -172,21 +172,19 @@ article {
 	h3,
 	h4,
 	h5,
-	h6
-	 {
+	h6 {
 		color: #000;
-		margin: 1.6em 0 0.8em;
+		margin: $lineHeight 0 0.8em;
 	}
 
 	h2 {
 		text-align: center;
-		letter-spacing: -1px;
-		font-weight: normal;
+		font-weight: 500;
 
 		a,
 		a:visited {
 			border: none;
-			font-size: 2.3rem;
+			font-size: 2.1rem;
 
 			&:hover {
 				color: $lightBlue;
@@ -197,10 +195,7 @@ article {
 					color: $darkGrey;
 					font-size: 1.4rem;
 					vertical-align: top;
-					margin: {
-						top: 0.3rem;
-						left: 0.2rem;
-					}
+					margin-top: 0.5rem;
 				}
 
 				&:hover i {
@@ -214,7 +209,7 @@ article {
 		}
 
 		&:first-of-type {
-			margin: #{$headerSpacer * 0.5} 0 #{$headerSpacer * 2};
+			margin: #{$headerSpacer * 0.4} 0 #{$headerSpacer * 2};
 			line-height: 1.5em;
 
 			&.screenReaderText {
@@ -226,8 +221,7 @@ article {
 			&:after {
 				margin: 0 auto;
 				border: {
-					bottom: #{$headerSpacer * 0.1} solid $grey;
-					radius: $iconSpacer;
+					bottom: #{$headerSpacer * 0.2} solid $grey;
 				}
 
 				width: 3rem;
@@ -283,6 +277,7 @@ div#articleMeta {
 			family: $code;
 		}
 		padding: 0px;
+		margin-bottom: 0px;
 
 		a,
 		a:visited {
@@ -321,26 +316,6 @@ h6 {
 	font-family: $heading;
 }
 
-_::-webkit-full-page-media, _:future, :root h1,
-_::-webkit-full-page-media, _:future, :root h2,
-_::-webkit-full-page-media, _:future, :root h3,
-_::-webkit-full-page-media, _:future, :root h4,
-_::-webkit-full-page-media, _:future, :root h5,
-_::-webkit-full-page-media, _:future, :root h6 {
-	letter-spacing: -2px; // Hack for Safari - sad but true
-}
-
-@-moz-document url-prefix() {
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		letter-spacing: -2px; // Hack for Firefox - sad but true
-	}
-}
-
 h2#listHeadline {
 	text-align: center;
 
@@ -372,31 +347,22 @@ a:visited {
 }
 
 .readMore {
-		display: block;
-		margin-top: 2em;
+	display: block;
+	margin-top: 2em;
 }
 
 .readMore,
-span.enigmaButton,
-div#articleMeta {
-	a,
-	a:visited {
-		border-radius: $smallBorderRadius;
-	}
-}
-
-.readMore,
-span.enigmaButton {
+span.sciolismButton {
 	text-align: center;
 	font-family: $code;
 
 	a,
 	a:visited {
-		background-color: #006EDA;
+		background-color: $lightBlue;
 		padding: 8px 10px;
 		color: #FFF;
 		border: none;
-		box-shadow: 2px 2px 0px #CCC;
+		box-shadow: 2px 2px 0px $darkGrey;
 
 		&:hover {
 			background-color: $red;
@@ -404,7 +370,7 @@ span.enigmaButton {
 	}
 }
 
-span.enigmaButton {
+span.sciolismButton {
 	i {
 		margin-right: $iconSpacer;
 	}
@@ -445,17 +411,6 @@ time.meta {
 
 span.meta {
 	margin-left: 0.5rem;
-}
-
-blockquote,
-mark,
-kbd,
-code,
-pre,
-img,
-div.chroma,
-.highlightText {
-	border-radius: $borderRadius;
 }
 
 mark,
@@ -544,10 +499,7 @@ table {
 		position: relative;
 		content: "";
 		top: -#{$headerSpacer - $headerSpacer * 0.1};
-		border:{
-			bottom: #{$headerSpacer * 0.1} solid $grey;
-			radius: $iconSpacer;
-		}
+		border-bottom: #{$headerSpacer * 0.2} solid $grey;
 	}
 
 	hr {
@@ -571,27 +523,16 @@ table {
 
 hr,
 div#articleMeta:before {
-	height: 0.5rem;
-	width: 0.5rem;
-	border-radius: #{$headerSpacer * 0.1};
-	border: 0.3rem solid $lightGrey;
+	@include setMultiProperty(height width, #{$headerSpacer * 0.2})
+	border: #{$headerSpacer * 0.15} solid $lightGrey;
 	background-color: $grey;
 	transform: rotate(45deg);
 }
 
 .screenReaderText {
-	// Taken from https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/
-	border: 0;
-	height: 1px;
-	margin: -1px;
+	// Inspired by https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/
+	@include setMultiProperty(border padding margin, 0);
+	@include setMultiProperty(height width, 1px);
 	overflow: hidden;
-	padding: 0;
 	position: absolute;
-	width: 1px;
-	word-wrap: normal !important;
-
-	&:after,
-	&.before {
-		display: none;
-	}
 }

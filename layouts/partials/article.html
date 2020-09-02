@@ -2,8 +2,8 @@
 	<div class="articleMiniMeta">
 		<i class="far fa-calendar-alt meta"></i>
 		<time class="meta" datetime="{{ .PublishDate.Format "2006-01-02" }}">
-			{{ if isset .Site.Params.enigma "dateFormat" }}
-				{{ .PublishDate.Format $.Site.Params.enigma.dateFormat }}
+			{{ if isset .Site.Params.sciolism "dateFormat" }}
+				{{ .PublishDate.Format $.Site.Params.sciolism.dateFormat }}
 			{{ else }}
 				{{ .PublishDate.Format "January 2, 2006" }}
 			{{ end }}
@@ -21,10 +21,10 @@
 	</div>
 	{{ partial "headline.html" . }}
 
-	{{ if and ( or (in .RawContent "<!--more-->") (in .RawContent "#more") ) (eq $.Site.Params.enigma.displayFullContentPerDefault true) }}
+	{{ if and ( or (in .RawContent "<!--more-->") (in .RawContent "#more") ) (eq $.Site.Params.sciolism.displayFullContentPerDefault true) }}
 		{{ partial "filteredContent.html" (slice .Site .Summary) }}
 		<span class="readMore"><a href="{{.Permalink}}" title="Continue reading ">Read more…</a></span>
-	{{ else if (eq $.Site.Params.enigma.displayFullContentPerDefault false) }}
+	{{ else if (eq $.Site.Params.sciolism.displayFullContentPerDefault false) }}
 		{{ partial "filteredContent.html" (slice .Site .Summary) }}
 	{{ else }}
 		{{ partial "filteredContent.html" (slice .Site .Content) }}

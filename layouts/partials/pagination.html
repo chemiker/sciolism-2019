@@ -3,7 +3,7 @@
     <ul id="pages">
     {{ if $.Paginator.HasPrev }}
       <li class="pageItem pageNavigator">
-          <a href="{{ if $.Paginator.HasPrev }}{{ $.Paginator.Prev.URL }}{{ end }}" class="page-link" aria-label="Previous" title="{{ $.Site.Params.enigma.pagesPreviousString }}" rel="previous"><span class="screenReaderText">Previous page</span><i class="fas fa-arrow-left"></i></a>
+          <a href="{{ if $.Paginator.HasPrev }}{{ $.Paginator.Prev.URL }}{{ end }}" class="page-link" aria-label="Previous" title="{{ $.Site.Params.sciolism.pagesPreviousString }}" rel="previous"><span class="screenReaderText">Previous page</span><i class="fas fa-arrow-left"></i></a>
       </li>
     {{ end }}
 	    {{ $ellipsed := false }}
@@ -27,7 +27,7 @@
 	    {{ end }}
     {{ if $.Paginator.HasNext }}
 	    <li class="pageItem pageNavigator">
-	        <a href="{{ if $.Paginator.HasNext }}{{ $.Paginator.Next.URL }}{{ end }}" class="page-link" aria-label="Next" title="{{ $.Site.Params.enigma.pagesNextString }}" rel="next"><span class="screenReaderText">Next page</span><i class="fas fa-arrow-right"></i></a>
+	        <a href="{{ if $.Paginator.HasNext }}{{ $.Paginator.Next.URL }}{{ end }}" class="page-link" aria-label="Next" title="{{ $.Site.Params.sciolism.pagesNextString }}" rel="next"><span class="screenReaderText">Next page</span><i class="fas fa-arrow-right"></i></a>
 	    </li>
     {{ end }}
     </ul>

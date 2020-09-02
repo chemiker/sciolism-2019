@@ -1,6 +1,6 @@
 {{ $paginator := "" }}
-{{ if $.Site.Params.enigma.blogPostType }}
-	{{ $paginator = .Paginate (where .Site.RegularPages "Type" $.Site.Params.enigma.blogPostType) }}
+{{ if $.Site.Params.sciolism.blogPostType }}
+	{{ $paginator = .Paginate (where .Site.RegularPages "Type" $.Site.Params.sciolism.blogPostType) }}
 {{ else }}
 	{{ $paginator = .Paginate (.Site.RegularPages) }}
 {{ end }}

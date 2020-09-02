@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
   integrity sha512-xKOeQEl5O47GPZYIMToj6uuA2syyFlq9EMSl2ui0uytjY9xbe8XS0pexNWmxrdcCyNGyDmLyYw5FtKsalBUeOg==
 
+"@openfonts/roboto-slab_all@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@openfonts/roboto-slab_all/-/roboto-slab_all-1.0.1.tgz#9b73f6d64cffe48d2a84a54eb1ad26372eb3bdcf"
+  integrity sha512-gP5aLZo6dI8FNnmzaEVCUx41J5+9L2dJn5Ysi7xoeFwURSCTskr6SHKOizD1b0J218L0GdGhiJZ226RbqW0AJQ==
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

@@ -4,24 +4,21 @@
 [![Build Status](https://travis-ci.com/chemiker/sciolism-2019.svg?token=x4izkYqUsdzKvGgzFj4T&branch=master)](https://travis-ci.com/chemiker/sciolism-2019)
 
 ## Installation
-1. Clone the repository to your theme directory:
+1. Download the latest [release](https://github.com/chemiker/sciolism-2019/releases) of the theme and move the files in the `theme` folder of your Hugo instance.
+2. Activate the theme by adjusting the theme option and insert all [theme options](#theme-options) in your project's `config.toml` file:
 
-```cd themes && git clone https://github.com/chemiker/sciolism-2019.git```
-
-2. Activate the theme by adjusting the theme option in your project's `config.toml` file:
-
-```theme = "enigma-2019"```
+```theme = "sciolism-2019"```
 
 ## Demo
 A live-demo is available [here](https://sciolism.de).
 
 ## Features
-**sciolism** features a content focused design and has a lot of features that yield a classy and well performing experience of your website. Here are some of the key features:
+**sciolism** features a content focused design and has a lot of features that yield a modern and well performing experience of your website. Here are some of the key features:
 
 * *Accessibility-ready:* **sciolism 2019** complies with common accessibility guidelines
-* *Customization:* The theme features several features to personalize your website and adjust it to your needs
-* *Build-in search:* Let your visitors find everything they are looking for…
-* *SEO friendly:* …including your website of course
+* *Customization:* The theme features several features to personalize your website and adjust it to your needs 🔧
+* *Build-in search:* Let your visitors find everything they are looking for… 🔎
+* *SEO friendly:* …including your website of course 🌍
 * *Build-in functions:* Several functions (shortcodes) to ease your daily business featuring limited support for high-resolution graphics, multi-language content, stylish buttons etc.
 * *Night mode:* Individual look for the late hours 🦇
 
@@ -55,16 +52,33 @@ The `quickfigure` shortcode has three options. One for the filename, the second 
 
 Please note that the CSS class `noShadow` can be used to remove the drop shadow from the images.
 
-##### Others
+#### Others
+
+`left`, `right` and `center` shortcodes can be used to change the text-align. `highlighText` can be used to visually highlight text.
 
 ### Abbreviations
 
+The theme comes with support for automatically replacing abbreviation or acronyms with their expansion or description. To do so the theme will read the file `abbr.toml` placed in your `data` folder. Add entries as follows:
+
+```toml
+"HTML" = "HyperText Markup Language"
+```
+
 ### Search
 
-### Menus
-**sciolism 2019** features two menus in the footer. The first is the `main` menu thought for the website navigation. The second, `social` can be used to link to your social media accounts. The configuration is done in your website's `config.toml` file as demonstrated below:
+If enabled in the theme options, the theme has a build in search. In order to enable search one additional step is necessary. In your `config.toml` file you need to enable the JSON output:
 
+```toml
+[outputs]
+  blog = ["HTML", "JSON"]
 ```
+
+This will provide an index file which is used by the search engine.
+
+### Menus
+**sciolism 2019** features two menus in the footer. The first is the `main` menu thought for the website navigation. The second, `aside` can be e.g. be used to link to your social media accounts. The configuration is done in your website's `config.toml` file as demonstrated below:
+
+```toml
 [menu]
   [[menu.main]]
     name = "About"
@@ -72,24 +86,18 @@ Please note that the CSS class `noShadow` can be used to remove the drop shadow 
     url = "/about/"
     weight = 1
 
-  [[menu.social]]
-    name = "Social"
-    pre = "<i class='fas fa-comments'></i>"
-    url = "#"
-    identifier = "socialMediaHeading"
-
-  [[menu.social]]
+  [[menu.aside]]
     name = "GitHub"
     pre = "<i class='fab fa-github'></i>"
-    url = "https://github.com/chemiker"
+    url = "https://mygithubprofile"
     parent = "socialMediaHeading"
 ```
 
-#### Theme options
-**sciolism 2019** features several additional options as shown below. All options must be included in your `config.toml`.
+### Theme options
+**sciolism 2019** features several additional options as shown below. **All options must be included in your `config.toml` in order to make the theme work**. Further documentation about the settings is available from the comments:
 
-```
-[params.enigma]
+```toml
+[params.sciolism]
   # GENERAL
   # Date format for your posts
   dateFormat = "January 2, 2006"
@@ -98,6 +106,8 @@ Please note that the CSS class `noShadow` can be used to remove the drop shadow 
   search = true
   # Enable use of favions. If set to true the theme expects the files favicon.ico and favicon-180x180.png in static/
   favIcons = true
+  # You can use this setting to list all partials (e.g. whatever.html) that you want to include in the header. Thus you don't have to modify the theme's code.
+  headerPartials = []
 
   # SEO
   # Enable support for openGraph and twitterCards integration
@@ -111,9 +121,9 @@ Please note that the CSS class `noShadow` can be used to remove the drop shadow 
   # If logo is set to true, the logo url must be provided
   logoPath = "logo.png"
   # Slogan for your website
-  slogan = "Playing around with technology"
+  slogan = "My slogan"
   # siteDescription is used to fill the <meta description> tag on your homepage
-  siteDescription = "sciolism is a blog about software projects as well as other stuff like music, games etc."
+  siteDescription = "My site deals with stuf"
 
   # CONTENT
   # If set to true this will display the whole content of a post as long as no summary was set manually (e.g. by <!--more-->)
@@ -123,7 +133,21 @@ Please note that the CSS class `noShadow` can be used to remove the drop shadow 
   # Strings for the website navigation
   pagesNextString = "Next"
   pagesPreviousString = "Previous"
+  mainMenuString = "<i class='fas fa-bars'></i>Navigation"
+  asideMenuString = "<i class='fas fa-users'></i>Social"
 ```
+
+## Development
+### Requirements
+* yarn
+
+### Installation
+1. Download the zip archive or clone the repository to your hugo development environment
+2. run `yarn install`
+3. run `yarn run gulp renderStatics` to compile all files required for development
+3. run `hugo server`
+
+For distribution you can run `yarn run gulp make`. This will create a `dist/` folder ready for production.
 
 ## License
 This project is released under the [MIT license](LICENSE).
@@ -133,6 +157,8 @@ It contains software and fonts released under individual licenses:
 * *lunr* - Copyright (c) 2013 Oliver Nightingale is released under the MIT license
 * *normalize.css* - Copyright (c) Nicolas Gallagher and Jonathan Neal is released under the MIT license
 * *Font Awesome* - Copyright (c) Fonticons, Inc. components are released under CC BY 4.0 license (Icons), SIL OFL 1.1 license (Fonts) and MIT license (Code)
-* *Arvo (Font)* - Copyright (c) 2010-2013 Anton Koovit is released under the SIL OFL 1.1 license
 * *Hack (Font)* - Copyright (c) 2018 Source Foundry Authors is released under an individual license
 * *Open Sans (Font)* - Copyright (c) Google Corporation is released under the Apache License 2.0
+* *npm-font-open-sans* - Copyright (c) Enrico Hoffmann is released under the Apache License 2.0
+* *Roboto Slab (Font)* - Copyright (c) Google Corporation is released under the Apache License 2.0
+* *roboto-slab_all* - Copyright (c) 2019 Jan Bednar is released under the MIT license

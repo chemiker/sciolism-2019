@@ -17,8 +17,8 @@ go:
   - master
 
 install:
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.72.0/hugo_extended_0.72.0_Linux-64bit.tar.gz
-  - tar -xzvf hugo_extended_0.72.0_Linux-64bit.tar.gz
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_extended_0.74.3_Linux-64bit.tar.gz
+  - tar -xzvf hugo_extended_0.74.3_Linux-64bit.tar.gz
   - chmod +x hugo
   - export PATH=$PATH:$PWD
   - hugo version

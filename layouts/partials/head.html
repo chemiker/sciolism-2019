@@ -10,18 +10,18 @@
 	{{ if .Description }}
 		<meta name="description" content="{{ .Description | plainify }}" />
 	{{ end }}
-	{{ if and (.Site.Params.enigma.siteDescription) (.IsHome) }}
-		<meta name="description" content="{{ .Site.Params.enigma.siteDescription | plainify }}" />
+	{{ if and (.Site.Params.sciolism.siteDescription) (.IsHome) }}
+		<meta name="description" content="{{ .Site.Params.sciolism.siteDescription | plainify }}" />
 	{{ end }}
 
-	{{- if .Site.Params.enigma.openGraph -}}
+	{{- if .Site.Params.sciolism.openGraph -}}
 		{{ template "_internal/opengraph.html" . }}
 	{{- end -}}
-	{{- if .Site.Params.enigma.twitterCards -}}
+	{{- if .Site.Params.sciolism.twitterCards -}}
 		{{ template "_internal/twitter_cards.html" . }}
 	{{- end -}}
 
-	{{- range $template := .Site.Params.enigma.headerPartials -}}
+	{{- range $template := .Site.Params.sciolism.headerPartials -}}
 		{{ partial $template . }}
 	{{- end -}}
 
@@ -31,7 +31,7 @@
 	{{- end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-	{{- if .Site.Params.enigma.favIcons -}}
+	{{- if .Site.Params.sciolism.favIcons -}}
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="icon" href="/favicon-180x180.png" />
 		<link rel="apple-touch-icon" href="/favicon-180x180.png" />
@@ -41,10 +41,10 @@
 
 	<link rel="stylesheet" href="{{ $themeCSS.RelPermalink }}" integrity="{{ $themeCSS.Data.Integrity }}" media="screen" />
 	<link rel="stylesheet" href="{{ "css/fontawesome.min.css" | relURL }}" media="screen" />
-	{{- if .Site.Params.enigma.logo -}}
+	{{- if .Site.Params.sciolism.logo -}}
 		<style type="text/css">
 			.withLogo {
-				background: transparent url('{{ .Site.Params.enigma.logoPath | relURL }}') no-repeat center center;
+				background: transparent url('{{ .Site.Params.sciolism.logoPath | relURL }}') no-repeat center center;
 			}
 		</style>
 	{{ end }}

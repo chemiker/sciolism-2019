@@ -7,7 +7,7 @@
     {{ $styling.Set "class" ($styling.Get "color") }}
     {{ $styling.Set "style" "" }}
 {{ end }}
-<span class="enigmaButton {{ $styling.Get "class" }}">
+<span class="sciolismButton {{ $styling.Get "class" }}">
   <a href="{{ if .Params.url }} {{ .Params.url }} {{ end }}" style="{{ $styling.Get "style" | safeCSS }}">
   {{ with .Params.icon }} {{ . | safeHTML }} {{ end }}
   {{ with .Params.title }} {{ . }} {{ end }}

@@ -1,12 +1,12 @@
 div.chroma {
-	border-left: 5px solid $orange;
-  font-size: 1.1em;
+	border-left: 5px solid $lightBlue;
+	font-size: 1.1em;
 	padding-right: 5px;
 
     table {
       pre,
       code {
-				@include setMultiProperty(padding-left padding-right margin border-radius, 0);
+		@include setMultiProperty(padding-left padding-right margin border-radius, 0);
         border: none;
       }
     }

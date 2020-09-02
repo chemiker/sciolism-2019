@@ -34,11 +34,14 @@ Font Awesome - Copyright (c) Fonticons, Inc.
     Code: MIT license (https://opensource.org/licenses/MIT)
   (see file "licenses/LICENSE-FONTAWESOME")
 
-Arvo (Font) - Copyright (c) 2010-2013 Anton Koovit
-  is released under the SIL OFL 1.1 license (see file "licenses/LICENSE-ARVO")
-
 Hack (Font) - Copyright (c) 2018 Source Foundry Authors
   is released under an individual license (see file "licenses/LICENSE-HACK")
 
-Open Sans (Font) - Copyright (c) Google Corporation
-  is released under the Apache License 2.0 (see file "licenses/LICENSE-OPENSANS")
+Open Sans (Font) and Roboto Slab (Font) - Copyright (c) Google Corporation
+  are released under the Apache License 2.0 (see file "licenses/LICENSE-OPENSANS-AND-ROBOTO-SLAB")
+
+npm-font-open-sans - Copyright (c) Enrico Hoffmann
+  is released under the Apache License 2.0 (see file "licenses/LICENSE-OPENSANS-AND-ROBOTO-SLAB")
+
+* roboto-slab_all - Copyright (c) 2019 Jan Bednar
+  is released under the MIT license (see file "licenses/LICENSE-ROBOTO-SLAB-ALL")
