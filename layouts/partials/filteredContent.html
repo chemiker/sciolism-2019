@@ -1,7 +1,7 @@
 {{ $page := index . 0  }}
 {{ $content := index . 1 }}
 {{- range $abbr, $title := $page.Data.abbr -}}
-	<!-- This is ugly: We could use a regexp like "%string(?![A-z0-9])" but go regexp currently lacks lookeheads… }} //-->
+	<!-- This is ugly: We could use a regexp like "%string(?![A-z0-9])" but go regexp currently lacks lookaheads… //-->
 	{{- $regExp := replace "(%string)([^A-z0-9])" "%string" $abbr -}}
 	{{- $content = $content | replaceRE $regExp (replace "<abbr title='%title'>$1</abbr>$2" "%title" $title) -}}
 {{- end -}}

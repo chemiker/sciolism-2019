@@ -1,10 +1,6 @@
 {{ $paginator := "" }}
-{{ if $.Site.Params.sciolism.blogPostType }}
-	{{ $paginator = .Paginate (where .Data.Pages "Type" $.Site.Params.sciolism.blogPostType) }}
-{{ else }}
-	{{ $paginator = .Paginate (.Data.Pages) }}
+{{ $paginator = .Paginate (where .Data.Pages "Type" "in" site.Params.mainSections) }}
+{{ range $paginator.Pages }}
+	{{ partial "article.html" . }}
 {{ end }}
-	{{ range $paginator.Pages }}
-		{{ partial "article.html" . }}
-	{{ end }}
-	{{- partial "pagination.html" . -}}
+{{- partial "pagination.html" . -}}

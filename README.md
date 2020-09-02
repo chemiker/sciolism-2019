@@ -4,8 +4,8 @@
 [![Build Status](https://travis-ci.com/chemiker/sciolism-2019.svg?token=x4izkYqUsdzKvGgzFj4T&branch=master)](https://travis-ci.com/chemiker/sciolism-2019)
 
 ## Installation
-1. Download the latest [release](https://github.com/chemiker/sciolism-2019/releases) of the theme and move the files in the `theme` folder of your Hugo instance.
-2. Activate the theme by adjusting the theme option and insert all [theme options](#theme-options) in your project's `config.toml` file:
+1. Download the latest [release](https://github.com/chemiker/sciolism-2019/releases) of the theme or clone this repository and move the files in the `theme` folder of your Hugo instance.
+2. Activate the theme by adjusting the theme option and insert all necessary [theme options](#theme-options) in your project's `config.toml` file:
 
 ```theme = "sciolism-2019"```
 
@@ -24,6 +24,38 @@ A live-demo is available [here](https://sciolism.de).
 
 ### Font Awesome Icons
 The theme has a build-in support for the [FontAwesome](https://fontawesome.com) icon set. To place an icon pick the html code from the [icon gallery](https://fontawesome.com/icons?d=gallery) and place it. E.g. `<i class='fab fa-github'></i>`
+
+### (Blog) posts
+
+The theme assumes that all your blog posts are of the archetype "post". If so you can provide add. meta information to the posts. Posts created by e.g. `hugo new post/myPost.md` do also have their own archetype template which have all add. fields listed:
+
+```yaml
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+#categories: -
+#tags: -
+#description:
+#language: ""
+#externalURL: ""
+#image: [""]
+---
+```
+
+Most of them are built-in resources but a few are additional:
+
+#### Description
+
+Description is used to fill the `<meta description>` tag.
+
+#### Language
+
+You can use this if your site has multilingual content and you want to overwrite the default language code.
+
+#### externalURL
+
+This allows you to overwrite the URL used for the headline link. The headline will also get a symbol to indicate that the headline has a link to an external resource. This can e.g. be used if the main purpose of the post is to link to a article, video or whatever.
 
 ### Shortcodes
 #### Buttons
@@ -101,7 +133,6 @@ This will provide an index file which is used by the search engine.
   # GENERAL
   # Date format for your posts
   dateFormat = "January 2, 2006"
-  blogPostType = "posts"
   # Enable search
   search = true
   # Enable use of favions. If set to true the theme expects the files favicon.ico and favicon-180x180.png in static/

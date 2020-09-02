@@ -121,6 +121,7 @@ gulp.task('make', function () {
     gulp.src("static/**/*").pipe(gulp.dest("dist/static/"));
     gulp.src("LICENSE").pipe(gulp.dest("dist/"));
     gulp.src("README.md").pipe(gulp.dest("dist/"));
+    gulp.src("../../resources/_gen/assets/**/main*").pipe(gulp.dest("resources/_gen/assets/"));
 
     return gulp.src("theme.toml").pipe(gulp.dest("dist/"));
 });

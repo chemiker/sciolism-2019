@@ -1,6 +1,6 @@
 <footer>
     <nav id="mainNavigation">
-        {{ with $.Site.Params.sciolism.mainMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
+        {{ with $.Site.Params.sciolism.mainMenuString -}}<h2>{{ . | safeHTML }}</h2>{{ end }}
         <ul>
     {{ range .Site.Menus.main }}
         {{ if .HasChildren }}
@@ -27,7 +27,7 @@
         </ul>
     </nav>
     <aside id="sideNavigation">
-        {{ with $.Site.Params.sciolism.asideMenuString -}}<h2>{{ . |safeHTML }}</h2>{{ end }}
+        {{ with $.Site.Params.sciolism.asideMenuString -}}<h2>{{ . | safeHTML }}</h2>{{ end }}
         <ul>
             {{ range .Site.Menus.aside }}
             {{ if .HasChildren }}
@@ -65,10 +65,7 @@
     {{- end -}}
 </footer>
 <div id="copyright">
-    <p>Made with <i class="fas fa-heart"></i>&nbsp;using Hugo and the sciolism 2019 theme.</p>
-    {{- with .Site.Copyright -}}
-    <p>{{ . }}</p>
-    {{- end -}}
+    <p>Made with <i class="fas fa-heart"></i>&nbsp;using Hugo and the <a href="https://sciolism.de/projects/sciolism-2019/">sciolism 2019</a> theme.{{ with .Site.Copyright }} {{ . }}{{ end }}</p>
 </div>
 {{- range $template := .Site.Params.sciolism.footerPartials -}}
     {{ partial $template . }}

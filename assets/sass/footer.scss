@@ -111,7 +111,16 @@ input.searchInput {
 		family: $code;
 	}
 	background-color: $lightBlue;
-	color: #FFF;
+
+	&,
+	a,
+	a:visited {
+		color: #FFF;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
 
 	p {
 		margin: 0;

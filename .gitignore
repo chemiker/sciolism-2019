@@ -1,8 +1,4 @@
 .DS_Store
 node_modules
-assets/sass/normalize.css
-assets/sass/fonts.scss
 dist/
-static/
-licenses/
 yarn-error.log
