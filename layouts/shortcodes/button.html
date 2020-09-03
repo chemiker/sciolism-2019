@@ -1,0 +1,15 @@
+{{ $styling := newScratch }}
+{{ $styling.Set "color" .Params.color }}
+{{ if findRE "#([A-f0-9]{6}|[A-f0-9]{3})" ($styling.Get "color") }}
+    {{ $styling.Set "class" "" }}
+    {{ $styling.Set "style" ( replace "background-color: %d;" "%d" ($styling.Get "color") ) }}
+{{ else }}
+    {{ $styling.Set "class" ($styling.Get "color") }}
+    {{ $styling.Set "style" "" }}
+{{ end }}
+<span class="sciolismButton {{ $styling.Get "class" }}">
+  <a href="{{ if .Params.url }} {{ .Params.url }} {{ end }}" style="{{ $styling.Get "style" | safeCSS }}">
+  {{ with .Params.icon }} {{ . | safeHTML }} {{ end }}
+  {{ with .Params.title }} {{ . }} {{ end }}
+  </a>
+</span>

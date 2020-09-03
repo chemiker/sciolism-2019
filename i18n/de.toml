@@ -1,0 +1,16 @@
+[prev_page]
+other = "Vorherige Seite"
+[next_page]
+other = "Nächste Seite"
+[categories]
+other = "Kategorien"
+[tags]
+other = "Schlagwörter"
+[article_info]
+other = "Artikel info"
+[search]
+other = "Suche"
+[read_more]
+other = "Weiterlesen…"
+[theme_copyright]
+other = "Kreiert mit <i class=\"fas fa-heart\"></i>, Hugo und dem <a href=\"https://sciolism.de/projects/sciolism-2019/\">sciolism 2019</a> theme."

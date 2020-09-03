@@ -1,0 +1,11 @@
+<h2>
+	{{ $url := newScratch }}
+	{{ if .Params.externalurl }}
+		{{ $url.Set "url" .Params.externalurl }}
+		{{ $url.Set "icon" true }}
+	{{ else }}
+		{{ $url.Set "url" .Permalink }}
+		{{ $url.Set "icon" false }}
+	{{ end }}
+	<a href="{{ $url.Get "url" }}" class="{{ if eq ($url.Get "icon") true }}externalUrl{{ end }}">{{.Title}}{{ if eq ($url.Get "icon") true }} <i class="fas fa-external-link-alt"></i>{{ end }}</a>
+</h2>

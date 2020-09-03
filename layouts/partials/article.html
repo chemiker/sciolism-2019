@@ -1,0 +1,33 @@
+<article lang="{{- partial "languageCode" (dict "postLanguage" .Params.language "languageCode" .Site.LanguageCode) -}}">
+	<div class="articleMiniMeta">
+		<i class="far fa-calendar-alt meta"></i>
+		<time class="meta" datetime="{{ .PublishDate.Format "2006-01-02" }}">
+			{{ if isset .Site.Params.sciolism "dateFormat" }}
+				{{ .PublishDate.Format $.Site.Params.sciolism.dateFormat }}
+			{{ else }}
+				{{ .PublishDate.Format "January 2, 2006" }}
+			{{ end }}
+		</time>
+		{{ $categories := (.Params.categories) }}
+			{{ if $categories }}
+			<span class="metaSeparator">&mdash;</span> <span class="screenReaderText">{{ i18n "categories" }}: </span><span class="meta"><i class="far fa-folder meta"></i>
+			  {{- $numberOfCategories := sub (len $categories) 1 -}}
+
+				{{- range $index, $category :=$categories -}}
+						<a href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a>{{ if lt $index $numberOfCategories }},{{ end }}
+				{{ end }}
+				</span>
+			{{ end }}
+	</div>
+	{{ partial "headline.html" . }}
+
+	{{ if and ( or (in .RawContent "<!--more-->") (in .RawContent "#more") ) (eq $.Site.Params.sciolism.displayFullContentPerDefault true) }}
+		{{ partial "filteredContent.html" (slice .Site .Summary) }}
+		<span class="readMore"><a href="{{.Permalink}}" title="Continue reading ">{{ i18n "read_more" }}</a></span>
+	{{ else if (eq $.Site.Params.sciolism.displayFullContentPerDefault false) }}
+		{{ partial "filteredContent.html" (slice .Site .Summary) }}
+	{{ else }}
+		{{ partial "filteredContent.html" (slice .Site .Content) }}
+	{{ end }}
+</article>
+<hr />

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{- .Site.LanguageCode -}}">
+	{{- partial "head.html" . -}}
+	<body>
+		{{- partial "header.html" . -}}
+		<main>
+			<article lang="{{- partial "languageCode" (dict "postLanguage" .Params.language "languageCode" .Site.LanguageCode) -}}">
+				<div class="articleMiniMeta">
+					<i class="far fa-calendar-alt meta"></i>
+					<time class="meta" datetime="{{ .PublishDate.Format "2006-01-02" }}">
+						{{ if isset .Site.Params.sciolism "dateFormat" }}
+						{{ .PublishDate.Format $.Site.Params.sciolism.dateFormat }}
+						{{ else }}
+						{{ .PublishDate.Format "January 2, 2006" }}
+						{{ end }}
+					</time>
+				</div>
+				{{ partial "headline.html" . }}
+				{{ partial "filteredContent.html" (slice .Site .Content) }}
+			</article>
+			{{ if (or .Params.categories .Params.tags) }}
+			<div id="articleMeta">
+				<h2 class="screenReaderText">{{ i18n "article_info" }}</h2>
+				<div class="articleMetaContainer">
+					{{ with .Params.categories }}
+					<h4><i class="fas fa-folder"></i> {{ i18n "categories" }}</h4>
+					<ul id="articleCategories">
+						{{ range . }}
+						<li><a href="{{ "categories" | absURL }}/{{ . | urlize }}" rel="tag">{{ . }}</a></li>
+						{{ end }}
+					</ul>
+					{{ end }}
+				</div><div class="articleMetaContainer">
+					{{ with .Params.tags }}
+					<h4><i class="fas fa-tags"></i> {{ i18n "tags" }}</h4>
+					<ul id="articleTags">
+						{{ range . }}
+						<li><a href="{{ "tags" | absURL }}/{{ . | urlize }}" rel="tag">{{ . }}</a></li>
+						{{ end }}
+					</ul>
+					{{ end }}
+				</div>
+			</div>
+			{{ end }}
+		</main>
+		{{- partial "footer.html" . -}}
+	</body>
+</html>

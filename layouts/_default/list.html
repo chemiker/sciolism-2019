@@ -1,0 +1,7 @@
+{{- define "main" -}}
+<main>
+<h2 id="listHeadline">{{ .Data.Singular | humanize }} archive: <em>{{ .Data.Term }}</em></h2>
+<hr />
+{{- partial "list.html" . -}}
+</main>
+{{- end -}}

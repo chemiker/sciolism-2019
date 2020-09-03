@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "latest",
+    "@openfonts/roboto-slab_all": "latest",
+    "gulp": "latest",
+    "gulp-concat": "latest",
+    "gulp-replace": "latest",
+    "hack-font": "latest",
+    "lunr": "latest",
+    "merge-stream": "latest",
+    "normalize.css": "latest",
+    "npm-font-open-sans": "latest"
+  }
+}

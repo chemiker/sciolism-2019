@@ -1,0 +1,6 @@
+{{ $paginator := "" }}
+{{ $paginator = .Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+{{ range $paginator.Pages }}
+	{{ partial "article.html" . }}
+{{ end }}
+{{- partial "pagination.html" . -}}
