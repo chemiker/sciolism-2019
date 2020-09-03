@@ -29,7 +29,7 @@ The theme has a build-in support for the [FontAwesome](https://fontawesome.com) 
 
 ### (Blog) posts
 
-The theme assumes that all your blog posts are of the archetype "post". If so you can provide add. meta information to the posts. Posts created by e.g. `hugo new post/myPost.md` do also have their own archetype template which have all add. fields listed:
+The theme supports add. meta information for the archetype "post". Posts created by e.g. `hugo new post/myPost.md` do also have their own archetype template which have all add. fields listed:
 
 ```yaml
 ---
@@ -49,15 +49,19 @@ Most of them are built-in resources but a few are additional:
 
 #### Description
 
-Description is used to fill the `<meta description>` tag.
+Description is used to fill the `<meta description>` tag for the post's site.
 
 #### Language
 
-You can use this if your site has multilingual content and you want to overwrite the default language code.
+You can use this if your site has multilingual content and you want to overwrite the default language code for the article.
 
 #### externalURL
 
-This allows you to overwrite the URL used for the headline link. The headline will also get a symbol to indicate that the headline has a link to an external resource. This can e.g. be used if the main purpose of the post is to link to a article, video or whatever.
+This allows you to overwrite the URL used for the headline link. The headline will also get a symbol to indicate that the headline links to an external resource. This can e.g. be used if the main purpose of the post is to link to a article, video or whatever.
+
+### Internationalization
+
+The theme is ready for internationalization and comes with translations into English and German.
 
 ### Shortcodes
 #### Buttons
@@ -128,7 +132,7 @@ This will provide an index file which is used by the search engine.
 ```
 
 ### Theme options
-**sciolism 2019** features several additional options as shown below. **All options must be included in your `config.toml` in order to make the theme work**. Further documentation about the settings is available from the comments:
+**sciolism 2019** features several additional options as shown below. Include options in your `config.toml` as needed. While the theme has fallbacks if options are not set it is recommended to copy the configuration below and adjust it to your needs. Further documentation about the settings is available from the comments:
 
 ```toml
 [params.sciolism]
@@ -156,7 +160,7 @@ This will provide an index file which is used by the search engine.
   # Slogan for your website
   slogan = "My slogan"
   # siteDescription is used to fill the <meta description> tag on your homepage
-  siteDescription = "My site deals with stuf"
+  siteDescription = "My site deals with stuff"
 
   # CONTENT
   # If set to true this will display the whole content of a post as long as no summary was set manually (e.g. by <!--more-->)
@@ -164,8 +168,6 @@ This will provide an index file which is used by the search engine.
 
   # NAVIGATION
   # Strings for the website navigation
-  pagesNextString = "Next"
-  pagesPreviousString = "Previous"
   mainMenuString = "<i class='fas fa-bars'></i>Navigation"
   asideMenuString = "<i class='fas fa-users'></i>Social"
 ```
