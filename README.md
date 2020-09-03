@@ -1,7 +1,7 @@
 # sciolism 2019
 **sciolism 2019** is a light-weighted and minimalistic theme for the static site generator [hugo](http://gohugo.io). The theme was designed for blogs.
 
-[![Build Status](https://travis-ci.com/chemiker/sciolism-2019.svg?token=x4izkYqUsdzKvGgzFj4T&branch=master)](https://travis-ci.com/chemiker/sciolism-2019)
+[![Maintainability](https://api.codeclimate.com/v1/badges/66a76207d5ec38570681/maintainability)](https://codeclimate.com/github/chemiker/sciolism-2019/maintainability) [![Build Status](https://travis-ci.com/chemiker/sciolism-2019.svg?token=x4izkYqUsdzKvGgzFj4T&branch=master)](https://travis-ci.com/chemiker/sciolism-2019)
 
 ![sciolism 2019](images/screenshot.png)
 
