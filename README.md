@@ -3,7 +3,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/66a76207d5ec38570681/maintainability)](https://codeclimate.com/github/chemiker/sciolism-2019/maintainability) [![Build Status](https://travis-ci.com/chemiker/sciolism-2019.svg?token=x4izkYqUsdzKvGgzFj4T&branch=master)](https://travis-ci.com/chemiker/sciolism-2019)
 
-![sciolism 2019](images/screenshot.png)
+![sciolism 2019](https://github.com/chemiker/sciolism-2019/raw/master/images/screenshot.png)
 
 ## Installation
 1. Download the latest [release](https://github.com/chemiker/sciolism-2019/releases) of the theme or clone this repository and move the files in the `theme` folder of your Hugo instance.
@@ -180,7 +180,7 @@ This will provide an index file which is used by the search engine.
 1. Download the zip archive or clone the repository to your hugo development environment
 2. run `yarn install`
 3. run `yarn run gulp renderStatics` to compile all files required for development
-3. run `hugo server`
+4. run `hugo server`
 
 For distribution you can run `yarn run gulp make`. This will create a `dist/` folder ready for production.
 
