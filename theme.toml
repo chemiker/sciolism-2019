@@ -3,8 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/chemiker/sciolism-2019/blob/master/LICENSE"
 description = "sciolism 2019 is a light-weighted and minimalistic theme designed for blogs."
 homepage = "https://sciolism.de/projects/sciolism-2019/"
-tags = ["Fontawesome", "Font awesome", "Search", "Mobile", "White", "Clean", "Responsive", "Blog", "Accessibility"]
-features = ["search", "mobile", "responsive", "accessibility"]
+tags = ["Fontawesome", "Font awesome", "Search", "Mobile", "White", "Dark", "Clean", "Responsive", "Blog", "Accessibility", "Multilingual", "Dark Mode"]
+features = ["search", "mobile", "responsive", "accessibility ready", "multilingual", "font awesome", "buttons", "dark mode", "shortcodes", "customizable"]
 min_version = "0.48"
 
 [author]

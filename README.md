@@ -3,6 +3,8 @@
 
 [![Build Status](https://travis-ci.com/chemiker/sciolism-2019.svg?token=x4izkYqUsdzKvGgzFj4T&branch=master)](https://travis-ci.com/chemiker/sciolism-2019)
 
+![sciolism 2019](images/screenshot.png)
+
 ## Installation
 1. Download the latest [release](https://github.com/chemiker/sciolism-2019/releases) of the theme or clone this repository and move the files in the `theme` folder of your Hugo instance.
 2. Activate the theme by adjusting the theme option and insert all necessary [theme options](#theme-options) in your project's `config.toml` file:

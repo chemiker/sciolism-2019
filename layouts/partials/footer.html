@@ -57,15 +57,15 @@
     </aside>
     {{- if $.Site.Params.sciolism.search -}}
     <form method="get" action="/search/" role="search">
-        <h2 class="screenReaderText">Search</h2>
-        <label for="bottomSearchBox" class="screenReaderText" aria-label="Search">Search</label>
-        <i class="fas fa-search searchIcon"></i><input type="search" name="q" id="bottomSearchBox" placeholder="Search"
+        <h2 class="screenReaderText">{{ i18n "search" }}</h2>
+        <label for="bottomSearchBox" class="screenReaderText" aria-label="Search">{{ i18n "search" }}</label>
+        <i class="fas fa-search searchIcon"></i><input type="search" name="q" id="bottomSearchBox" placeholder="{{ i18n "search" }}"
             class="searchInput" />
     </form>
     {{- end -}}
 </footer>
 <div id="copyright">
-    <p>Made with <i class="fas fa-heart"></i>&nbsp;using Hugo and the <a href="https://sciolism.de/projects/sciolism-2019/">sciolism 2019</a> theme.{{ with .Site.Copyright }} {{ . }}{{ end }}</p>
+    <p>{{ i18n "theme_copyright" | safeHTML }}{{ with .Site.Copyright }} {{ . }}{{ end }}</p>
 </div>
 {{- range $template := .Site.Params.sciolism.footerPartials -}}
     {{ partial $template . }}
