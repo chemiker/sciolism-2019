@@ -1,0 +1,78 @@
+baseURL = "https://example.com/"
+languageCode = "en"
+defaultContentLanguage = "en"
+title = "sciolism 2019"
+paginate = 3
+enableRobotsTXT = true
+theme = "sciolism-2019"
+
+[markup]
+ [markup.highlight]
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  description = "sciolism 2019 is a light-weighted and minimalistic theme for the static site generator hugo. The theme was designed for blogs."
+  mainSections = ["post"]
+
+[outputs]
+  blog = ["HTML", "JSON"]
+  home = ["HTML", "JSON"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[menu]
+  # Main menu
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+
+  # Aside Menu
+  [[menu.aside]]
+    name = "Example"
+    url = "https://example.com/"
+  [[menu.aside]]
+    name = "Hugo"
+    url = "https://gohugo.io"
+
+[params.sciolism]
+  # GENERAL
+  # Date format for your posts
+  dateFormat = "January 2, 2006"
+  # Enable search
+  search = true
+  # Enable use of favions. If set to true the theme expects the files favicon.ico and favicon-180x180.png in static/
+  favIcons = false
+  # You can use this setting to list all partials (e.g. whatever.html) that you want to include in the header. Thus you don't have to modify the theme's code.
+  headerPartials = [
+    "myPartial.html"
+  ]
+
+  # SEO
+  # Enable support for openGraph and twitterCards integration
+  # If you want to provide a default image for openGraph you can place an image with the name ogImage.png in static/
+  openGraph = true
+  twitterCards = true
+
+  # HEADER
+  # If set to true, this will use the image provided in logoPath as logo in the header. If set to false, it will show you sites title instead
+  logo = false
+  # If logo is set to true, the logo url must be provided
+  logoPath = "logo.png"
+  # Slogan for your website
+  slogan = "A light-weighted and minimalistic theme"
+  # siteDescription is used to fill the <meta description> tag on your homepage
+  siteDescription = "sciolism 2019 is a light-weighted and minimalistic theme"
+
+  # CONTENT
+  # If set to true this will display the whole content of a post as long as no summary was set manually (e.g. by <!--more-->)
+  displayFullContentPerDefault = true
+
+  # NAVIGATION
+  # Strings for the website navigation
+  mainMenuString = "<i class='fas fa-bars'></i>Navigation"
+  asideMenuString = "<i class='fas fa-heart'></i>Blogroll"

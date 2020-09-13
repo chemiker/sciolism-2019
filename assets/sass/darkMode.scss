@@ -220,7 +220,12 @@
 
 	#copyright {
 		background-color: $yellow;
-		color: $darkModeGrey;
+
+		&,
+		a,
+		a:visited {
+			color: $darkModeGrey;
+		}
 	}
 
 	.ct-grid {
