@@ -25,11 +25,11 @@ A live-demo is available [here](https://sciolism.de).
 * *Night mode:* Individual look for the late hours 🦇
 
 ### Font Awesome Icons
-The theme has a build-in support for the [FontAwesome](https://fontawesome.com) icon set. To place an icon pick the html code from the [icon gallery](https://fontawesome.com/icons?d=gallery) and place it. E.g. `<i class='fab fa-github'></i>`
+The theme has a build-in support for the [FontAwesome](https://fontawesome.com) icon set. To place an icon pick the html code from the [icon gallery](https://fontawesome.com/icons?d=gallery) and paste it in your content files. E.g. `<i class='fab fa-github'></i>`
 
 ### (Blog) posts
 
-The theme supports add. meta information for the archetype "post". Posts created by e.g. `hugo new post/myPost.md` do also have their own archetype template which have all add. fields listed:
+The theme supports additional [front matter](https://gohugo.io/content-management/front-matter/) for the archetype "post". Posts created by e.g. `hugo new post/myPost.md` do also have their own archetype template which have all add. fields listed:
 
 ```yaml
 ---
@@ -41,15 +41,15 @@ draft: true
 #description:
 #language: ""
 #externalURL: ""
-#image: [""]
+#images: [""]
 ---
 ```
 
-Most of them are built-in resources but a few are additional:
+Most of them are built-in resources but a few are additional or have a special role:
 
 #### Description
 
-Description is used to fill the `<meta description>` tag for the post's site.
+Description is used to overwrite the `<meta description>` tag for the post's site.
 
 #### Language
 
@@ -67,12 +67,12 @@ The theme is ready for internationalization and comes with translations into Eng
 #### Buttons
 Buttons can be placed by using the `button` shortcode. An example of the buttons in action can be found [here](https://sciolism.de/projects/e.nigma-2015/). They can be customized by using the `url`, `title`, `icon` and `color` attributes. E.g.
 
-```{{< button url="//github.com/chemiker/e.nigma2015" title="Fork on GitHub" icon="<i class='fab fa-github'></i>" color="purple" >}}#```
+```{{< button url="//github.com/chemiker/sciolism-2019" title="Fork on GitHub" icon="<i class='fab fa-github'></i>" color="purple" >}}#```
 
 For the `icon` attribute you can use the FontAwesome icons as described above. For the `color` attribute you can pick from `green`, `orange`, `purple`, `blue` or `red`.
 
 #### Images
-In addition to the [built-in shortcodes](https://gohugo.io/content-management/shortcodes/#use-hugos-builtin-shortcodes) for including images **sciolism 2019** has build in two additional shortcodes: `img` and `quickfigure`. The main difference is that `quickfigure` makes use of the `<figcaption>` html element.
+In addition to the [built-in shortcodes](https://gohugo.io/content-management/shortcodes/#use-hugos-builtin-shortcodes) for including images **sciolism 2019** has build in two additional shortcodes: `img` and `quickfigure`. The main difference between both is that `quickfigure` makes use of the `<figcaption>` html element.
 
 ##### img
 The `img` shortcode has two main options. One for the filename, the second for the `alt` HTML attribute:
@@ -92,7 +92,7 @@ Please note that the CSS class `noShadow` can be used to remove the drop shadow 
 
 #### Others
 
-`left`, `right` and `center` shortcodes can be used to change the text-align. `highlighText` can be used to visually highlight text.
+`left`, `right` and `center` shortcodes can be used to change the text-align. Please note that all content wrapped by these shortcodes will not markdownified. In case markdown parsing is necessary you have to nest the content in `markdown` shortcode, too. `highlightText` can be used to visually highlight text.
 
 ### Abbreviations
 
@@ -104,14 +104,20 @@ The theme comes with support for automatically replacing abbreviation or acronym
 
 ### Search
 
-If enabled in the theme options, the theme has a build in search. In order to enable search one additional step is necessary. In your `config.toml` file you need to enable the JSON output:
+If enabled in the theme options, the theme has a build in search. In order to enable search two additional steps are necessary. In your `config.toml` file you need to enable the JSON output:
 
 ```toml
 [outputs]
   blog = ["HTML", "JSON"]
 ```
 
-This will provide an index file which is used by the search engine.
+This will provide an index file template which is used by the search engine. In case you want to tweak the search (e.g. add other page types or other fields to be included in the search) you can grab the `index.json` file and place a modified copy in your `layouts/` folder. In addition you need to create a file `search.md` with the content:
+
+```
+---
+type: search
+---
+```
 
 ### Menus
 **sciolism 2019** features two menus in the footer. The first is the `main` menu thought for the website navigation. The second, `aside` can be e.g. be used to link to your social media accounts. The configuration is done in your website's `config.toml` file as demonstrated below:
@@ -158,9 +164,9 @@ This will provide an index file which is used by the search engine.
   # If logo is set to true, the logo url must be provided
   logoPath = "logo.png"
   # Slogan for your website
-  slogan = "My slogan"
+  slogan = "A light-weighted and minimalistic theme"
   # siteDescription is used to fill the <meta description> tag on your homepage
-  siteDescription = "My site deals with stuff"
+  siteDescription = "sciolism 2019 is a light-weighted and minimalistic theme"
 
   # CONTENT
   # If set to true this will display the whole content of a post as long as no summary was set manually (e.g. by <!--more-->)
@@ -171,6 +177,24 @@ This will provide an index file which is used by the search engine.
   mainMenuString = "<i class='fas fa-bars'></i>Navigation"
   asideMenuString = "<i class='fas fa-users'></i>Social"
 ```
+
+Examples for almost all options can be found in the example Site (see the `exampleSite` folder).
+
+## Changelog
+
+### 1.0.1
+
+* Added exampleSite to demonstrate the theme features
+* Fixed wrong front matter attribute in archetypes
+* Fixed wrong colors in dark mode theme
+* Fixed unwanted centering of h2 elements 
+* Use `mainSections` setting to populate `index.json file
+* Removed markdownify filter from `center`, `left` and `right` shortcode
+* Added `markdown` shortcode to manually trigger the markdownify filter
+
+### 1.0
+
+* Initial release
 
 ## Development
 ### Requirements
