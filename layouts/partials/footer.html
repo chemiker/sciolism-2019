@@ -55,7 +55,7 @@
             {{ end }}
         </ul>
     </aside>
-    {{- if $.Site.Params.sciolism.search -}}
+    {{- if and ($.Site.Params.sciolism.search) (fileExists "content/search.md") -}}
     <form method="get" action="/search/" role="search">
         <h2 class="screenReaderText">{{ i18n "search" }}</h2>
         <label for="bottomSearchBox" class="screenReaderText" aria-label="Search">{{ i18n "search" }}</label>
